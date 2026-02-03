@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <link rel="icon" type="image/png" href="ora.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EB • Sistema Estratégico</title>
+    <title>EB • SISTEMA ESTRATÉGICO</title>
+    <link rel="icon" type="ora.png" href="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -33,57 +33,65 @@
         }
         .logo { text-align: center; margin-bottom: 30px; }
         .logo i { font-size: 40px; color: var(--primary); }
-        .logo h1 { font-family: 'Orbitron'; font-size: 20px; color: var(--primary); margin-top: 10px; }
+        .logo h1 { font-family: 'Orbitron'; font-size: 18px; color: var(--primary); margin-top: 10px; letter-spacing: 2px; }
+
         .menu { list-style: none; margin-top: 20px; }
-        .menu li { margin: 10px 0; }
+        .menu li { margin: 8px 0; }
         .menu a {
             display: flex; align-items: center; gap: 12px; padding: 12px;
             text-decoration: none; color: var(--text); border-radius: 8px; transition: 0.3s;
+            font-size: 14px;
         }
         .menu a:hover { background: #1a2411; color: var(--primary); border: 1px solid var(--primary); }
 
-        /* CONTEÚDO PRINCIPAL */
-        .main-container { margin-left: 280px; flex: 1; display: flex; flex-direction: column; width: calc(100% - 280px); }
+        /* MAIN CONTENT */
+        .main { margin-left: 280px; flex: 1; display: flex; flex-direction: column; width: calc(100% - 280px); }
 
         .hero {
             height: 250px;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1605116492794-1f0c8c2f4c78?auto=format&fit=crop&w=1600&q=80') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1605116492794-1f0c8c2f4c78?auto=format&fit=crop&w=1600&q=80') center/cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
-        .hero h2 { font-family: 'Orbitron'; font-size: 32px; color: var(--primary); }
+        .hero h2 { font-family: 'Orbitron'; font-size: 30px; color: var(--primary); text-shadow: 0 0 10px rgba(143, 209, 79, 0.4); }
 
-        .section { padding: 50px 40px; width: 100%; position: relative; border-bottom: 1px solid var(--border); }
-        .section-title { font-family: 'Orbitron'; font-size: 22px; margin-bottom: 25px; border-left: 4px solid var(--primary); padding-left: 15px; }
+        .section { padding: 60px 40px; width: 100%; border-bottom: 1px solid var(--border); }
+        .section-title { font-family: 'Orbitron'; font-size: 22px; margin-bottom: 30px; border-left: 4px solid var(--primary); padding-left: 15px; display: flex; align-items: center; gap: 10px; }
 
-        /* GRID */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .card { background: var(--card); border: 1px solid var(--border); padding: 25px; border-radius: 12px; transition: 0.3s; }
-        .card:hover { border-color: var(--primary); transform: translateY(-3px); }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .card h3 { font-family: 'Orbitron'; color: var(--primary); margin-bottom: 10px; font-size: 18px; }
 
-        /* ÁREA TÉCNICA */
-        .dev-box {
-            background: #0c1208; border: 1px solid var(--primary); border-radius: 15px;
-            padding: 30px; margin-top: 20px; display: none;
+        /* BOTÕES DISCORD */
+        .btn-discord {
+            display: inline-flex; align-items: center; gap: 8px; margin-top: 15px;
+            padding: 8px 15px; background: #5865F2; color: white; text-decoration: none;
+            border-radius: 5px; font-size: 13px; font-weight: bold; transition: 0.3s;
         }
-        .dev-layout { display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; }
-        .dev-photo { width: 150px; height: 150px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover; background: #222; }
+        .btn-discord:hover { filter: brightness(1.2); transform: scale(1.05); }
+
+        /* ÁREA TÉCNICA / SKILLS */
+        .dev-container { background: #0c1208; border: 1px solid var(--primary); border-radius: 15px; padding: 30px; margin-top: 20px; display: none; }
+        .dev-flex { display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; }
+        .dev-photo { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover; }
         
-        .skill-group { flex: 1; min-width: 250px; }
-        .skill-bar { width: 100%; height: 10px; background: #1a2411; border-radius: 5px; margin: 10px 0 20px; overflow: hidden; }
+        .skill-group { flex: 1; min-width: 280px; }
+        .skill-bar { width: 100%; height: 10px; background: #1a2411; border-radius: 5px; margin: 8px 0 18px; overflow: hidden; }
         .skill-fill { height: 100%; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
 
-        .btn-toggle {
+        .toggle-btn {
             background: transparent; color: var(--primary); border: 1px solid var(--primary);
-            padding: 12px 20px; border-radius: 8px; cursor: pointer; font-family: 'Orbitron'; transition: 0.3s;
+            padding: 12px 25px; border-radius: 8px; cursor: pointer; font-family: 'Orbitron'; transition: 0.3s; font-size: 14px;
         }
-        .btn-toggle:hover { background: var(--primary); color: #000; }
+        .toggle-btn:hover { background: var(--primary); color: #000; box-shadow: 0 0 15px var(--primary); }
 
+        /* FOOTER */
         .footer { background: #050703; padding: 40px; text-align: center; border-top: 1px solid var(--border); margin-top: auto; }
 
         @media (max-width: 1024px) {
             .sidebar { width: 80px; padding: 10px; }
             .sidebar h1, .menu span { display: none; }
-            .main-container { margin-left: 80px; width: calc(100% - 80px); }
+            .main { margin-left: 80px; width: calc(100% - 80px); }
         }
     </style>
 </head>
@@ -92,73 +100,108 @@
     <aside class="sidebar">
         <div class="logo"><i class="fas fa-shield-halved"></i><h1>EB • FALCA</h1></div>
         <ul class="menu">
-            <li><a href="#"><i class="fas fa-house"></i> <span>Início</span></a></li>
+            <li><a href="#inicio"><i class="fas fa-house"></i> <span>Início</span></a></li>
             <li><a href="#painel"><i class="fas fa-chart-line"></i> <span>Painel</span></a></li>
             <li><a href="#divisoes"><i class="fas fa-users"></i> <span>Divisões</span></a></li>
-            <li><a href="#tecnica"><i class="fas fa-user-secret"></i> <span>Desenvolvedor</span></a></li>
+            <li><a href="#honrarias"><i class="fas fa-medal"></i> <span>Honrarias</span></a></li>
+            <li><a href="#tecnica"><i class="fas fa-code"></i> <span>Área Técnica</span></a></li>
             <li><a href="#contato"><i class="fas fa-envelope"></i> <span>Contato</span></a></li>
         </ul>
     </aside>
 
-    <div class="main-container">
+    <div class="main">
         <section class="hero" id="inicio">
             <h2>EXÉRCITO BRASILEIRO RP</h2>
-            <p>Sistema Militar de Operações Estratégicas</p>
+            <p style="color: #888; margin-top: 10px;">Sistema Estratégico de Gestão Militar</p>
         </section>
 
         <section class="section" id="painel">
-            <h2 class="section-title">Painel Operacional</h2>
+            <h2 class="section-title"><i class="fas fa-terminal"></i> Painel Operacional</h2>
             <div class="grid">
-                <div class="card"><h3>686+</h3><p>Militares Ativos</p></div>
-                <div class="card"><h3>24/7</h3><p>Servidor Estável</p></div>
-                <div class="card"><h3>SISTEMA</h3><p>Desenvolvimento Exclusivo</p></div>
+                <div class="card"><h3>686+</h3><p>Efetivo Militar Ativo</p></div>
+                <div class="card"><h3>ESTÁVEL</h3><p>Servidor 24h Online</p></div>
+                <div class="card"><h3>AUTORAL</h3><p>Sistemas 100% Próprios</p></div>
             </div>
         </section>
 
         <section class="section" id="divisoes">
-            <h2 class="section-title">Divisões de Elite</h2>
+            <h2 class="section-title"><i class="fas fa-crosshairs"></i> Divisões de Elite</h2>
             <div class="grid">
-                <div class="card"><h3>CIE</h3><p>Centro de Inteligência do Exército</p></div>
-                <div class="card"><h3>BAC</h3><p>Batalhão de Ações de Comandos</p></div>
-                <div class="card"><h3>BFE</h3><p>Batalhão de Forças Especiais</p></div>
+                <div class="card">
+                    <h3>CIE</h3>
+                    <p>Inteligência e Contra-Inteligência.</p>
+                    <a href="#" class="btn-discord"><i class="fab fa-discord"></i> Entrar CIE</a>
+                </div>
+                <div class="card">
+                    <h3>BAC</h3>
+                    <p>Batalhão de Ações de Comandos.</p>
+                    <a href="#" class="btn-discord"><i class="fab fa-discord"></i> Entrar BAC</a>
+                </div>
+                <div class="card">
+                    <h3>BFE</h3>
+                    <p>Batalhão de Forças Especiais.</p>
+                    <a href="#" class="btn-discord"><i class="fab fa-discord"></i> Entrar BFE</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="honrarias">
+            <h2 class="section-title"><i class="fas fa-award"></i> Quadro de Honra</h2>
+            <div class="grid">
+                <div class="card" style="border-color: gold;">
+                    <h3><i class="fas fa-crown" style="color: gold;"></i> Lead Dev</h3>
+                    <p><strong>Davi</strong></p>
+                    <p style="font-size: 12px; color: #777; margin-top: 5px;">Arquiteto do Sistema e Front-end.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-hammer"></i> Master Builders</h3>
+                    <p>Equipe de Construção EB</p>
+                    <p style="font-size: 12px; color: #777; margin-top: 5px;">Excelência em mapeamento e infraestrutura.</p>
+                </div>
             </div>
         </section>
 
         <section class="section" id="tecnica">
-            <h2 class="section-title">Área Técnica</h2>
-            <button class="btn-toggle" onclick="toggleDev()">VER PERFIL DO DESENVOLVEDOR</button>
+            <h2 class="section-title"><i class="fas fa-user-gear"></i> Desenvolvimento</h2>
+            <button class="toggle-btn" onclick="toggleDev()">ACESSAR DATABASE DO DESENVOLVEDOR</button>
             
-            <div id="dev-content" class="dev-box">
-                <div class="dev-layout">
-                    <img src="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg
-" class="dev-photo" alt="Davi">
+            <div id="dev-content" class="dev-container">
+                <div class="dev-flex">
+                    <img src="perfil.jpg" class="dev-photo" alt="Davi">
                     <div class="skill-group">
-                        <h3 style="color:var(--primary); font-family:'Orbitron';">Davi — Lead Developer</h3>
-                        <p style="margin-bottom: 20px; color: #aaa;">Especialista em automação Discord e sistemas de Roleplay.</p>
+                        <h3>Davi — Lead Developer</h3>
+                        <p style="margin: 5px 0 20px; color: #aaa;">Expertise em Full-Stack e Automação Militar.</p>
                         
-                        <span>Front-end Design</span>
+                        <span>Front-end (HTML5 / CSS3 / JS)</span>
                         <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
                         
-                        <span>Sistemas RP & Integração</span>
+                        <span>Engenharia de Sistemas RP</span>
                         <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
                         
-                        <span>Integração Discord</span>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+                        <span>Discord API & Bots</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="section" id="contato">
-            <h2 class="section-title">Contato e Suporte</h2>
+            <h2 class="section-title"><i class="fas fa-headset"></i> Suporte</h2>
             <div class="grid">
-                <div class="card"><i class="fab fa-discord"></i> <strong>Discord:</strong> midoriwko</div>
-                <div class="card"><i class="fas fa-envelope"></i> <strong>Email:</strong> davibrasnuneslopes@hotmail.com</div>
+                <div class="card">
+                    <i class="fab fa-discord" style="font-size: 25px; color: var(--primary);"></i>
+                    <p style="margin-top: 10px;"><strong>Discord:</strong> midoriwko</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-envelope" style="font-size: 25px; color: var(--primary);"></i>
+                    <p style="margin-top: 10px;"><strong>Email:</strong> davibrasnuneslopes@hotmail.com</p>
+                </div>
             </div>
         </section>
 
         <footer class="footer">
-            <p>© 2026 • EB FALCA RP • Sistema Militar</p>
+            <p style="font-family: 'Orbitron'; font-size: 14px; letter-spacing: 1px;">EB • FALCA RP • SISTEMA OFICIAL</p>
+            <p style="color: #444; font-size: 11px; margin-top: 10px;">© 2026 Todos os direitos reservados.</p>
         </footer>
     </div>
 
