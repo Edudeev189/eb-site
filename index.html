@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EB • Sistema Estratégico Avançado</title>
+    <title>EB • Sistema Estratégico</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -17,11 +17,9 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+        body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; overflow-x: hidden; }
 
-        .app { display: flex; min-height: 100vh; }
-
-        /* SIDEBAR */
+        /* SIDEBAR FIXA */
         .sidebar {
             width: 280px;
             background: linear-gradient(180deg, var(--panel), #050703);
@@ -31,132 +29,104 @@
             height: 100vh;
             z-index: 1000;
         }
-        .logo { text-align: center; margin-bottom: 40px; }
-        .logo i { font-size: 45px; color: var(--primary); }
+        .logo { text-align: center; margin-bottom: 30px; }
+        .logo i { font-size: 40px; color: var(--primary); }
         .logo h1 { font-family: 'Orbitron'; font-size: 20px; color: var(--primary); margin-top: 10px; }
-
-        .menu { list-style: none; }
-        .menu li { margin: 15px 0; }
+        .menu { list-style: none; margin-top: 20px; }
+        .menu li { margin: 10px 0; }
         .menu a {
-            display: flex; align-items: center; gap: 15px; padding: 12px;
+            display: flex; align-items: center; gap: 12px; padding: 12px;
             text-decoration: none; color: var(--text); border-radius: 8px; transition: 0.3s;
         }
         .menu a:hover { background: #1a2411; color: var(--primary); border: 1px solid var(--primary); }
 
         /* CONTEÚDO PRINCIPAL */
-        .main { margin-left: 280px; flex: 1; display: flex; flex-direction: column; width: calc(100% - 280px); }
+        .main-container { margin-left: 280px; flex: 1; display: flex; flex-direction: column; width: calc(100% - 280px); }
 
         .hero {
-            height: 260px;
+            height: 250px;
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1605116492794-1f0c8c2f4c78?auto=format&fit=crop&w=1600&q=80') center/cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
         .hero h2 { font-family: 'Orbitron'; font-size: 32px; color: var(--primary); }
 
-        .section { padding: 50px 40px; border-bottom: 1px solid var(--border); width: 100%; }
-        .section-title { font-family: 'Orbitron'; font-size: 24px; margin-bottom: 30px; border-left: 4px solid var(--primary); padding-left: 15px; }
+        /* SEÇÕES LIMPAS */
+        .section { padding: 50px 40px; width: 100%; position: relative; border-bottom: 1px solid var(--border); }
+        .section-title { font-family: 'Orbitron'; font-size: 22px; margin-bottom: 25px; border-left: 4px solid var(--primary); padding-left: 15px; }
 
-        /* GRID SISTEMA */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .card { background: var(--card); border: 1px solid var(--border); padding: 25px; border-radius: 12px; transition: 0.3s; }
-        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        /* GRID */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: var(--card); border: 1px solid var(--border); padding: 25px; border-radius: 12px; }
 
-        /* ÁREA TÉCNICA - CORREÇÃO DEFINITIVA */
-        .dev-container { 
-            background: #0c1208; border: 1px solid var(--primary); border-radius: 15px; 
-            padding: 30px; margin-top: 20px; display: none; width: 100%;
+        /* ÁREA TÉCNICA (SOLUÇÃO DO BUG) */
+        .dev-box {
+            background: #0c1208; border: 1px solid var(--primary); border-radius: 15px;
+            padding: 30px; margin-top: 20px; display: none; /* Só aparece no clique */
         }
-        .dev-flex { display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; }
-        .dev-photo { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover; }
-        .dev-info { flex: 1; min-width: 280px; }
+        .dev-layout { display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; }
+        .dev-photo { width: 150px; height: 150px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover; background: #222; }
         
-        .skill-box { margin-bottom: 20px; }
-        .skill-bar { width: 100%; height: 12px; background: #1a2411; border-radius: 6px; overflow: hidden; margin-top: 8px; }
-        .skill-per { height: 100%; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
+        .skill-group { flex: 1; min-width: 250px; }
+        .skill-bar { width: 100%; height: 10px; background: #1a2411; border-radius: 5px; margin: 10px 0 20px; overflow: hidden; }
+        .skill-fill { height: 100%; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
 
-        .dev-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
-        .action-btn { 
-            padding: 10px 20px; border: 1px solid var(--primary); border-radius: 6px; 
-            color: var(--primary); text-decoration: none; font-size: 14px; transition: 0.3s;
-        }
-        .action-btn:hover { background: var(--primary); color: #000; }
-
-        .dev-toggle-btn {
+        .btn-toggle {
             background: transparent; color: var(--primary); border: 1px solid var(--primary);
-            padding: 12px 25px; border-radius: 8px; cursor: pointer; font-family: 'Orbitron'; transition: 0.3s;
+            padding: 12px 20px; border-radius: 8px; cursor: pointer; font-family: 'Orbitron'; transition: 0.3s;
         }
-        .dev-toggle-btn:hover { background: var(--primary); color: #000; }
+        .btn-toggle:hover { background: var(--primary); color: #000; }
 
-        /* FOOTER */
-        .footer { background: #050703; padding: 40px; text-align: center; border-top: 2px solid var(--border); margin-top: auto; }
+        /* FOOTER NO FUNDO */
+        .footer { background: #050703; padding: 40px; text-align: center; border-top: 1px solid var(--border); margin-top: auto; }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
             .sidebar { width: 80px; padding: 10px; }
-            .sidebar h1, .sidebar span, .menu span { display: none; }
-            .main { margin-left: 80px; width: calc(100% - 80px); }
+            .sidebar h1, .menu span { display: none; }
+            .main-container { margin-left: 80px; width: calc(100% - 80px); }
         }
     </style>
 </head>
 <body>
 
-<div class="app">
     <aside class="sidebar">
-        <div class="logo">
-            <i class="fas fa-shield-halved"></i>
-            <h1>EB • FALCA</h1>
-        </div>
+        <div class="logo"><i class="fas fa-shield-halved"></i><h1>EB</h1></div>
         <ul class="menu">
-            <li><a href="#inicio"><i class="fas fa-house"></i> <span>Início</span></a></li>
+            <li><a href="#"><i class="fas fa-house"></i> <span>Início</span></a></li>
             <li><a href="#painel"><i class="fas fa-chart-line"></i> <span>Painel</span></a></li>
-            <li><a href="#divisoes"><i class="fas fa-users"></i> <span>Divisões</span></a></li>
-            <li><a href="#dev"><i class="fas fa-user-secret"></i> <span>Desenvolvedor</span></a></li>
             <li><a href="#contato"><i class="fas fa-envelope"></i> <span>Contato</span></a></li>
         </ul>
     </aside>
 
-    <main class="main">
-        <section class="hero" id="inicio">
-            <h2>Exército Brasileiro RP</h2>
-            <p style="color:#aaa; margin-top:10px;">Sistema Militar de Alta Performance</p>
+    <div class="main-container">
+        <section class="hero">
+            <h2>EXÉRCITO BRASILEIRO RP</h2>
+            <p>Sistema Militar de Operações</p>
         </section>
 
         <section class="section" id="painel">
             <h2 class="section-title">Painel Operacional</h2>
             <div class="grid">
                 <div class="card"><h3>686+</h3><p>Militares Ativos</p></div>
-                <div class="card"><h3>24/7</h3><p>Servidor Estável</p></div>
-                <div class="card"><h3>SISTEMA</h3><p>Automação Exclusiva</p></div>
+                <div class="card"><h3>24/7</h3><p>Servidor Online</p></div>
             </div>
         </section>
 
-        <section class="section" id="dev">
+        <section class="section" id="tecnica">
             <h2 class="section-title">Área Técnica</h2>
-            <button class="dev-toggle-btn" onclick="toggleDev()">ABRIR PAINEL DO DESENVOLVEDOR</button>
+            <button class="btn-toggle" onclick="toggleDev()">ABRIR PERFIL DO DESENVOLVEDOR</button>
             
-            <div id="dev-content" class="dev-container">
-                <div class="dev-flex">
-                    <img src="perfil.jpg" class="dev-photo" alt="Foto Davi">
-                    <div class="dev-info">
-                        <h3 style="color:var(--primary); font-family:'Orbitron';">Davi — Lead Developer</h3>
-                        <p style="margin: 10px 0 20px;">Especialista em automação Discord e sistemas de Roleplay militar.</p>
+            <div id="dev-content" class="dev-box">
+                <div class="dev-layout">
+                    <img src="perfil.jpg" class="dev-photo" alt="Davi">
+                    <div class="skill-group">
+                        <h3>Davi — Lead Developer</h3>
+                        <p style="margin-bottom: 20px; color: #aaa;">Desenvolvimento de sistemas e automação militar.</p>
                         
-                        <div class="skill-box">
-                            <span>Front-end (HTML/CSS/JS)</span>
-                            <div class="skill-bar"><div class="skill-per" style="width: 90%;"></div></div>
-                        </div>
-                        <div class="skill-box">
-                            <span>Sistemas RP</span>
-                            <div class="skill-bar"><div class="skill-per" style="width: 95%;"></div></div>
-                        </div>
-                        <div class="skill-box">
-                            <span>Integração Discord</span>
-                            <div class="skill-bar"><div class="skill-per" style="width: 85%;"></div></div>
-                        </div>
-
-                        <div class="dev-actions">
-                            <a href="#contato" class="action-btn">Contato</a>
-                            <a href="#" class="action-btn">Projetos</a>
-                        </div>
+                        <span>Front-end (HTML / CSS / JS)</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+                        
+                        <span>Sistemas RP & Integração Discord</span>
+                        <div class="skill-bar"><div class="skill-per skill-fill" style="width: 95%;"></div></div>
                     </div>
                 </div>
             </div>
@@ -165,24 +135,21 @@
         <section class="section" id="contato">
             <h2 class="section-title">Contato</h2>
             <div class="grid">
-                <div class="card"><i class="fab fa-discord"></i><p>midoriwko</p></div>
-                <div class="card"><i class="fas fa-envelope"></i><p>davibrasnuneslopes@hotmail.com</p></div>
+                <div class="card"><strong>Discord:</strong> midoriwko</div>
+                <div class="card"><strong>Email:</strong> davibrasnuneslopes@hotmail.com</div>
             </div>
         </section>
 
         <footer class="footer">
             <p>© 2026 • EB FALCA RP • Sistema Militar</p>
-            <p style="color:#555; font-size:12px; margin-top:10px;">Desenvolvido por Davi</p>
         </footer>
-    </main>
-</div>
+    </div>
 
-<script>
-    function toggleDev() {
-        const content = document.getElementById('dev-content');
-        content.style.display = (content.style.display === 'block') ? 'none' : 'block';
-    }
-</script>
-
+    <script>
+        function toggleDev() {
+            const dev = document.getElementById('dev-content');
+            dev.style.display = (dev.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
