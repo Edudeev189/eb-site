@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EB • SISTEMA ESTRATÉGICO</title>
-    <link rel="icon" type="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg" href="ora.png">
+    
+    <link rel="icon" type="image/jpg" href="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg">
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -64,13 +66,13 @@
 
         /* BOTÕES DISCORD */
         .btn-discord {
-            display: inline-flex; align-items: center; gap: 8px; margin-top: 15px;
-            padding: 8px 15px; background: #5865F2; color: white; text-decoration: none;
-            border-radius: 5px; font-size: 13px; font-weight: bold; transition: 0.3s;
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 15px;
+            padding: 10px 15px; background: #5865F2; color: white; text-decoration: none;
+            border-radius: 5px; font-size: 13px; font-weight: bold; transition: 0.3s; width: 100%;
         }
-        .btn-discord:hover { filter: brightness(1.2); transform: scale(1.05); }
+        .btn-discord:hover { filter: brightness(1.2); transform: scale(1.02); }
 
-        /* ÁREA TÉCNICA / SKILLS */
+        /* ÁREA TÉCNICA */
         .dev-container { background: #0c1208; border: 1px solid var(--primary); border-radius: 15px; padding: 30px; margin-top: 20px; display: none; }
         .dev-flex { display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; }
         .dev-photo { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover; }
@@ -130,17 +132,20 @@
                 <div class="card">
                     <h3>CIE</h3>
                     <p>Inteligência e Contra-Inteligência.</p>
-                    <a href="#" class="btn-discord"><i class="fab fa-discord"></i> Entrar CIE</a>
+                    <p>Diretor: Midori</p>
+                    <a href="https://discord.gg/Ccr7ubBuWb" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> Entrar CIE</a>
                 </div>
                 <div class="card">
                     <h3>BAC</h3>
                     <p>Batalhão de Ações de Comandos.</p>
-                    <a href="#" class="btn-discord"><i class="fab fa-discord"></i> Entrar BAC</a>
+                    <p>Diretor: Mariel</p>
+                    <a href="https://discord.gg/MwwHQfVwAn" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> Entrar BAC</a>
                 </div>
                 <div class="card">
                     <h3>BFE</h3>
                     <p>Batalhão de Forças Especiais.</p>
-                    <a href="#" class="btn-discord"><i class="fab fa-discord"></i> Entrar BFE</a>
+                    <p>Diretor: Rafael</p>
+                    <a href="https://discord.gg/BCWpHjhe9U" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> Entrar BFE</a>
                 </div>
             </div>
         </section>
@@ -148,21 +153,26 @@
         <section class="section" id="honrarias">
             <h2 class="section-title"><i class="fas fa-award"></i> Quadro de Honra</h2>
             <div class="grid">
-                <div class="card" style="border-color: gold;">
+                <div class="card" style="border-left: 4px solid gold;">
                     <h3><i class="fas fa-crown" style="color: gold;"></i> Lead Dev</h3>
-                    <p><strong>Davi</strong></p>
-                    <p style="font-size: 12px; color: #777; margin-top: 5px;">Arquiteto do Sistema e Front-end.</p>
+                    <p><strong>Midori</strong></p>
+                    <p style="font-size: 12px; color: #777; margin-top: 10px;">Arquiteto do Sistema.</p>
                 </div>
-                <div class="card">
+                <div class="card" style="border-left: 4px solid #8fd14f;">
                     <h3><i class="fas fa-hammer"></i> Master Builders</h3>
-                    <p>Equipe de Construção EB</p>
-                    <p style="font-size: 12px; color: #777; margin-top: 5px;">Excelência em mapeamento e infraestrutura.</p>
+                    <ul style="list-style: none; font-size: 14px; line-height: 1.8;">
+                        <li><i class="fas fa-star" style="color: gold; font-size: 10px;"></i> Falca [Dono]</li>
+                        <li><i class="fas fa-star" style="color: gold; font-size: 10px;"></i> Midori [Co-Owner]</li>
+                        <li><i class="fas fa-star" style="color: gold; font-size: 10px;"></i> Vetê [Chefe Dev]</li>
+                        <li><i class="fas fa-star" style="color: gold; font-size: 10px;"></i> Mariel [Dev]</li>
+                    </ul>
+                    <p style="font-size: 11px; color: #555; margin-top: 10px;">Excelência em mapeamento e infraestrutura.</p>
                 </div>
             </div>
         </section>
 
         <section class="section" id="tecnica">
-            <h2 class="section-title"><i class="fas fa-user-gear"></i> Desenvolvimento</h2>
+            <h2 class="section-title"><i class="fas fa-user-gear"></i> Developer Status</h2>
             <button class="toggle-btn" onclick="toggleDev()">ACESSAR DATABASE DO DESENVOLVEDOR</button>
             
             <div id="dev-content" class="dev-container">
@@ -172,7 +182,7 @@
                         <h3>Davi — Lead Developer</h3>
                         <p style="margin: 5px 0 20px; color: #aaa;">Expertise em Full-Stack e Automação Militar.</p>
                         
-                        <span>Front-end (HTML5 / CSS3 / JS)</span>
+                        <span>Engenheiro de Software (Python)</span>
                         <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
                         
                         <span>Engenharia de Sistemas RP</span>
