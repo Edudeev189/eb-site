@@ -29,6 +29,25 @@ color:var(--text);
 
 .app{display:flex;min-height:100vh;}
 
+  /* BOTÃO DEV OCULTO */
+
+.dev-btn{
+background:transparent;
+color:var(--primary);
+border:1px solid var(--primary);
+padding:12px 20px;
+border-radius:8px;
+cursor:pointer;
+font-family:'Orbitron';
+transition:0.3s;
+}
+
+.dev-btn:hover{
+background:var(--primary);
+color:#000;
+}
+
+
 /* SIDEBAR */
 
 .sidebar{
@@ -341,11 +360,19 @@ color:#aaa;
 
 <!-- PERFIL DEV -->
 
+<!-- DEV OCULTO -->
+
 <section class="section" id="dev">
 
-<h2 class="section-title">Sobre o Desenvolvedor</h2>
+<h2 class="section-title">Área Técnica</h2>
 
-<div class="card profile">
+<button class="dev-btn" onclick="toggleDev()">
+<i class="fas fa-user-secret"></i> Ver Informações do Desenvolvedor
+</button>
+
+<div id="dev-content" style="display:none;">
+
+<div class="card profile" style="margin-top:25px;">
 
 <img src="SUA_FOTO_AQUI.jpg" alt="Foto do Desenvolvedor">
 
@@ -354,24 +381,22 @@ color:#aaa;
 <h3>Davi — Desenvolvedor</h3>
 
 <p>
-Programador em formação, cursando programação presencial.
-Responsável pelo desenvolvimento do sistema militar,
-painel estratégico e automações dentro do servidor.
+Responsável técnico pelo sistema,
+automação e integração da plataforma.
 </p>
 
 <p>
-Especialidade: Front-end, sistemas RP, integração Discord.
+Especialidade: Sistemas RP, Front-end, Discord.
 </p>
 
-<p>
-Participação direta no desenvolvimento do jogo.
-</p>
+</div>
 
 </div>
 
 </div>
 
 </section>
+
 
 <!-- CONTATO -->
 
@@ -413,6 +438,20 @@ Desenvolvido por Davi
 </main>
 
 </div>
+<script>
+
+function toggleDev(){
+const dev = document.getElementById("dev-content");
+
+if(dev.style.display === "none"){
+dev.style.display = "block";
+}else{
+dev.style.display = "none";
+}
+
+}
+
+</script>
 
 </body>
 </html>
