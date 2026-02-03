@@ -455,33 +455,79 @@ color:#000;
 <!-- DEV OCULTO -->
 
 <section class="section" id="dev">
+    <h2 class="section-title">Área Técnica</h2>
 
-<h2 class="section-title">Área Técnica</h2>
+    <button class="dev-btn" onclick="toggleDev()">
+        <i class="fas fa-user-secret"></i> Ver Informações do Desenvolvedor
+    </button>
 
-<button class="dev-btn" onclick="toggleDev()">
-<i class="fas fa-user-secret"></i> Ver Informações do Desenvolvedor
-</button>
+    <div id="dev-content" style="display: none; margin-top: 25px;">
+        <div class="dev-box">
+            <img src="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg" class="dev-photo" alt="Foto do Desenvolvedor">
 
-<div id="dev-content" style="display:none;">
+            <div class="dev-info">
+                <h3>Davi — Desenvolvedor</h3>
+                <div class="dev-tag">Programador em formação • Sistemas RP • Front-end</div>
 
-<div class="dev-box">
+                <p>Responsável técnico pelo sistema, automação e integração Discord. Especialista em lógica de servidores RP.</p>
 
-<img src="perfil.jpg" class="dev-photo">
+                <div class="skill">
+                    <span>Front-end (HTML / CSS / JS)</span>
+                    <div class="bar"><div style="width:90%"></div></div>
+                </div>
+                <div class="skill">
+                    <span>Automação / Bots</span>
+                    <div class="bar"><div style="width:85%"></div></div>
+                </div>
+                <div class="skill">
+                    <span>Sistemas RP</span>
+                    <div class="bar"><div style="width:95%"></div></div>
+                </div>
 
-<div class="dev-info">
+                <div class="dev-actions">
+                    <a href="mailto:davibrasnuneslopes@hotmail.com"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://discord.com" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<h3>Davi — Desenvolvedor</h3>
+<section class="section" id="contato">
+    <h2 class="section-title">Contato</h2>
+    <div class="grid">
+        <div class="card">
+            <h3><i class="fab fa-discord"></i> Discord</h3>
+            <p>midoriwko</p>
+        </div>
+        <div class="card">
+            <h3><i class="fas fa-envelope"></i> Email</h3>
+            <p>davibrasnuneslopes@hotmail.com</p>
+        </div>
+    </div>
+</section>
 
-<div class="dev-tag">
-Programador em formação • Sistemas RP • Front-end
-</div>
+<footer class="footer">
+    © 2026 • EB FALCA RP • Sistema Militar
+</footer>
 
-<p>
-Responsável técnico pelo desenvolvimento,
-automação, integração Discord e painel operacional.
-Atuação direta na criação do sistema do servidor.
-</p>
+<script>
+function toggleDev() {
+    const dev = document.getElementById("dev-content");
+    // Log para você testar no F12 se o botão está funcionando
+    console.log("Botão clicado. Estado atual:", dev.style.display);
+    
+    if (dev.style.display === "none" || dev.style.display === "") {
+        dev.style.display = "block";
+    } else {
+        dev.style.display = "none";
+    }
+}
 
+function scrollToDev() {
+    document.getElementById("dev").scrollIntoView({ behavior: "smooth" });
+}
+</script>
 <!-- SKILLS -->
 
 <div class="skill">
