@@ -220,6 +220,99 @@ font-size:13px;
 color:#aaa;
 }
 
+/* DEV AREA AVANÇADA */
+
+.dev-box{
+margin-top:30px;
+background:linear-gradient(145deg,#0c1208,#050703);
+border:1px solid var(--primary);
+border-radius:15px;
+padding:30px;
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+align-items:center;
+animation:fadeIn 0.6s ease;
+box-shadow:0 0 25px rgba(143,209,79,0.2);
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+.dev-photo{
+width:180px;
+height:180px;
+border-radius:50%;
+border:4px solid var(--primary);
+object-fit:cover;
+box-shadow:0 0 25px rgba(143,209,79,0.6);
+}
+
+.dev-info{
+flex:1;
+min-width:250px;
+}
+
+.dev-info h3{
+font-size:28px;
+color:var(--primary);
+margin-bottom:8px;
+}
+
+.dev-tag{
+font-size:13px;
+color:#aaa;
+margin-bottom:15px;
+}
+
+.skill{
+margin:12px 0;
+}
+
+.skill span{
+font-size:13px;
+}
+
+.bar{
+width:100%;
+height:8px;
+background:#1a2411;
+border-radius:5px;
+overflow:hidden;
+margin-top:4px;
+}
+
+.bar div{
+height:100%;
+background:var(--primary);
+box-shadow:0 0 8px var(--primary);
+}
+
+.dev-actions{
+margin-top:20px;
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.dev-actions a{
+text-decoration:none;
+padding:10px 18px;
+border:1px solid var(--primary);
+border-radius:6px;
+color:var(--primary);
+font-size:13px;
+transition:0.3s;
+}
+
+.dev-actions a:hover{
+background:var(--primary);
+color:#000;
+}
+
+  
 </style>
 </head>
 
@@ -362,6 +455,80 @@ color:#aaa;
 <!-- DEV OCULTO -->
 
 <section class="section" id="dev">
+
+<h2 class="section-title">Área Técnica</h2>
+
+<button class="dev-btn" onclick="toggleDev()">
+<i class="fas fa-user-secret"></i> Ver Informações do Desenvolvedor
+</button>
+
+<div id="dev-content" style="display:none;">
+
+<div class="dev-box">
+
+<img src="perfil.jpg" class="dev-photo">
+
+<div class="dev-info">
+
+<h3>Davi — Desenvolvedor</h3>
+
+<div class="dev-tag">
+Programador em formação • Sistemas RP • Front-end
+</div>
+
+<p>
+Responsável técnico pelo desenvolvimento,
+automação, integração Discord e painel operacional.
+Atuação direta na criação do sistema do servidor.
+</p>
+
+<!-- SKILLS -->
+
+<div class="skill">
+<span>Front-end (HTML / CSS / JS)</span>
+<div class="bar"><div style="width:90%"></div></div>
+</div>
+
+<div class="skill">
+<span>Automação / Bots</span>
+<div class="bar"><div style="width:85%"></div></div>
+</div>
+
+<div class="skill">
+<span>Sistemas RP</span>
+<div class="bar"><div style="width:95%"></div></div>
+</div>
+
+<div class="skill">
+<span>Integração Discord</span>
+<div class="bar"><div style="width:80%"></div></div>
+</div>
+
+<!-- BOTÕES -->
+
+<div class="dev-actions">
+
+<a href="#contato">
+<i class="fas fa-envelope"></i> Contato
+</a>
+
+<a href="#painel">
+<i class="fas fa-chart-line"></i> Projetos
+</a>
+
+<a href="#inicio">
+<i class="fas fa-shield"></i> Sistema
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 <h2 class="section-title">Área Técnica</h2>
 
