@@ -4,228 +4,177 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EB • Sistema Estratégico Avançado</title>
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;}
-
-        :root{
-            --bg:#070a05;
-            --panel:#0f140c;
-            --card:#10150c;
-            --primary:#8fd14f;
-            --border:#2d3a20;
-            --text:#e4e4e4;
+        :root {
+            --bg: #070a05;
+            --panel: #0f140c;
+            --card: #10150c;
+            --primary: #8fd14f;
+            --border: #2d3a20;
+            --text: #e4e4e4;
         }
 
-        body{
-            font-family:'Roboto',sans-serif;
-            background:var(--bg);
-            color:var(--text);
-            overflow-x: hidden;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
 
-        .app{display:flex;min-height:100vh;}
+        .app { display: flex; min-height: 100vh; }
 
         /* SIDEBAR */
-        .sidebar{
-            width:280px;
-            background:linear-gradient(180deg,var(--panel),#050703);
-            border-right:2px solid var(--border);
-            padding:20px;
-            position:fixed;
-            height:100vh;
-            z-index: 100;
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, var(--panel), #050703);
+            border-right: 2px solid var(--border);
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            z-index: 1000;
         }
-
-        .logo{text-align:center;margin-bottom:30px;}
-        .logo i{font-size:40px;color:var(--primary);}
-        .logo h1{font-family:'Orbitron';font-size:22px;color:var(--primary);}
-        .logo span{font-size:12px;color:#aaa;}
-
-        .menu{list-style:none;margin-top:30px;}
-        .menu li{margin:12px 0;}
-        .menu a{
-            display:flex;
-            align-items:center;
-            gap:10px;
-            padding:12px;
-            text-decoration:none;
-            color:var(--text);
-            border-radius:6px;
-            border:1px solid transparent;
-            transition:0.3s;
+        .logo { text-align: center; margin-bottom: 30px; }
+        .logo i { font-size: 40px; color: var(--primary); }
+        .logo h1 { font-family: 'Orbitron'; font-size: 20px; color: var(--primary); }
+        .menu { list-style: none; }
+        .menu li { margin: 10px 0; }
+        .menu a {
+            display: flex; align-items: center; gap: 10px; padding: 12px;
+            text-decoration: none; color: var(--text); border-radius: 6px; transition: 0.3s;
         }
-        .menu a:hover{background:#1a2411;border-color:var(--primary);color:var(--primary);}
+        .menu a:hover { background: #1a2411; color: var(--primary); border: 1px solid var(--primary); }
 
-        /* MAIN CONTENT */
-        .main{margin-left:280px;width:calc(100% - 280px);min-height: 100vh;display: flex;flex-direction: column;}
+        /* CONTEÚDO PRINCIPAL */
+        .main { margin-left: 280px; flex: 1; display: flex; flex-direction: column; }
 
-        .hero{
-            height:260px;
-            background:url('https://images.unsplash.com/photo-1605116492794-1f0c8c2f4c78?auto=format&fit=crop&w=1600&q=80') center/cover;
-            position:relative;
+        .hero {
+            height: 260px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1605116492794-1f0c8c2f4c78?auto=format&fit=crop&w=1600&q=80') center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
-        .hero::after{content:"";inset:0;position:absolute;background:rgba(0,0,0,0.75);}
-        .hero-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
-        .hero-content h2{font-family:'Orbitron';font-size:34px;color:var(--primary);}
+        .hero h2 { font-family: 'Orbitron'; font-size: 32px; color: var(--primary); }
 
-        .section{padding:50px 40px;width: 100%;}
-        .section-title{font-family:'Orbitron';font-size:24px;margin-bottom:25px;border-left:4px solid var(--primary);padding-left:12px;}
+        .section { padding: 60px 40px; border-bottom: 1px solid var(--border); width: 100%; }
+        .section-title { font-family: 'Orbitron'; font-size: 24px; margin-bottom: 30px; border-left: 4px solid var(--primary); padding-left: 15px; }
 
-        /* DASHBOARD & CARDS */
-        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
-        .card, .stat{background:var(--card);border:1px solid var(--border);padding:20px;border-radius:10px;transition:0.3s;}
-        .card:hover{border-color:var(--primary);transform:translateY(-5px);}
-        .stat{text-align:center;}
-        .stat i{font-size:28px;color:var(--primary);margin-bottom:10px;}
+        /* GRID SISTEMA */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: var(--card); border: 1px solid var(--border); padding: 25px; border-radius: 12px; transition: 0.3s; }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
 
-        /* ÁREA TÉCNICA (FIX) */
-        .dev-btn{
-            background:transparent;color:var(--primary);border:1px solid var(--primary);
-            padding:12px 20px;border-radius:8px;cursor:pointer;font-family:'Orbitron';transition:0.3s;
+        /* ÁREA TÉCNICA - CORREÇÃO DO BUG */
+        .dev-container { 
+            background: #0c1208; border: 1px solid var(--primary); border-radius: 15px; 
+            padding: 30px; margin-top: 20px; display: none; /* Começa escondido */
         }
-        .dev-btn:hover{background:var(--primary);color:#000;}
+        .dev-flex { display: flex; flex-wrap: wrap; gap: 30px; align-items: center; }
+        .dev-photo { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover; }
+        .dev-info { flex: 1; min-width: 280px; }
+        
+        .skill-box { margin: 15px 0; }
+        .skill-bar { width: 100%; height: 10px; background: #1a2411; border-radius: 5px; overflow: hidden; margin-top: 8px; }
+        .skill-per { height: 100%; background: var(--primary); box-shadow: 0 0 10px var(--primary); transition: 1s; }
 
-        .dev-box{
-            margin-top:20px;
-            background:linear-gradient(145deg,#0c1208,#050703);
-            border:1px solid var(--border);
-            border-radius:15px;
-            padding:30px;
-            display:flex;
-            flex-wrap:wrap;
-            gap:30px;
-            align-items: center;
+        .dev-btn {
+            background: transparent; color: var(--primary); border: 1px solid var(--primary);
+            padding: 12px 25px; border-radius: 8px; cursor: pointer; font-family: 'Orbitron'; transition: 0.3s;
         }
+        .dev-btn:hover { background: var(--primary); color: #000; }
 
-        .dev-photo{
-            width:160px;height:160px;border-radius:50%;
-            border:4px solid var(--primary);object-fit:cover;
-            box-shadow:0 0 20px rgba(143,209,79,0.3);
-        }
-
-        .dev-info{flex:1;min-width:300px;}
-        .skill{margin:15px 0;}
-        .bar{width:100%;height:8px;background:#1a2411;border-radius:5px;margin-top:5px;overflow:hidden;}
-        .bar div{height:100%;background:var(--primary);box-shadow:0 0 8px var(--primary);}
-
-        .footer{
-            background:#050703;
-            border-top:1px solid var(--border);
-            text-align:center;
-            padding:30px;
-            font-size:13px;
-            color:#aaa;
-            margin-top: auto;
-        }
+        .footer { background: #050703; padding: 40px; text-align: center; border-top: 2px solid var(--border); color: #666; font-size: 14px; }
 
         @media (max-width: 768px) {
-            .sidebar{width: 80px;padding: 10px;}
-            .sidebar h1, .sidebar span, .menu span{display: none;}
-            .main{margin-left: 80px;width: calc(100% - 80px);}
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .main { margin-left: 0; }
+            .app { flex-direction: column; }
         }
     </style>
 </head>
-
 <body>
-    <div class="app">
-        <aside class="sidebar">
-            <div class="logo">
-                <i class="fas fa-shield-halved"></i>
-                <h1>EB • FALCA</h1>
-                <span>Sistema Militar RP</span>
+
+<div class="app">
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fas fa-shield-halved"></i>
+            <h1>EB • FALCA</h1>
+        </div>
+        <ul class="menu">
+            <li><a href="#inicio"><i class="fas fa-house"></i> Início</a></li>
+            <li><a href="#painel"><i class="fas fa-chart-line"></i> Painel</a></li>
+            <li><a href="#divisoes"><i class="fas fa-users"></i> Divisões</a></li>
+            <li><a href="#dev"><i class="fas fa-user-secret"></i> Desenvolvedor</a></li>
+            <li><a href="#contato"><i class="fas fa-envelope"></i> Contato</a></li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <section class="hero" id="inicio">
+            <h2>Exército Brasileiro RP</h2>
+            <p>Sistema Operacional Militar</p>
+        </section>
+
+        <section class="section" id="painel">
+            <h2 class="section-title">Painel Operacional</h2>
+            <div class="grid">
+                <div class="card"><h3>686+</h3><p>Militares Ativos</p></div>
+                <div class="card"><h3>24/7</h3><p>Servidor Online</p></div>
+                <div class="card"><h3>SISTEMA</h3><p>Desenvolvimento Próprio</p></div>
             </div>
-            <ul class="menu">
-                <li><a href="#inicio"><i class="fas fa-house"></i> <span>Início</span></a></li>
-                <li><a href="#painel"><i class="fas fa-chart-line"></i> <span>Painel</span></a></li>
-                <li><a href="#divisoes"><i class="fas fa-users"></i> <span>Divisões</span></a></li>
-                <li><a href="#honra"><i class="fas fa-medal"></i> <span>Honrarias</span></a></li>
-                <li><a href="#contato"><i class="fas fa-envelope"></i> <span>Contato</span></a></li>
-            </ul>
-        </aside>
+        </section>
 
-        <main class="main">
-            <section class="hero" id="inicio">
-                <div class="hero-content">
-                    <h2>Exército Brasileiro RP</h2>
-                    <p>Sistema Operacional Militar</p>
-                </div>
-            </section>
-
-            <section class="section" id="painel">
-                <h2 class="section-title">Painel Operacional</h2>
-                <div class="grid">
-                    <div class="stat"><i class="fas fa-users"></i><h3>686+</h3><p>Militares</p></div>
-                    <div class="stat"><i class="fas fa-code"></i><h3>Ativo</h3><p>Desenvolvimento Próprio</p></div>
-                    <div class="stat"><i class="fas fa-server"></i><h3>24/7</h3><p>Servidor Online</p></div>
-                </div>
-            </section>
-
-            <section class="section" id="divisoes">
-                <h2 class="section-title">Divisões</h2>
-                <div class="grid">
-                    <div class="card"><h3>CIE</h3><p>Centro de Inteligência</p><p>Diretor: Midori</p></div>
-                    <div class="card"><h3>BAC</h3><p>Ações e Comandos</p><p>Diretor: MarielDev</p></div>
-                    <div class="card"><h3>BFE</h3><p>Forças Especiais</p><p>Diretor: Rafael</p></div>
-                </div>
-            </section>
-
-            <section class="section" id="honra">
-                <h2 class="section-title">Honrarias</h2>
-                <div class="grid">
-                    <div class="card"><h3>🎖️ Medalha de Honra</h3><p>Serviços prestados</p></div>
-                    <div class="card"><h3>⭐ Destaque</h3><p>Melhor desempenho</p></div>
-                </div>
-            </section>
-
-            <section class="section" id="dev">
-                <h2 class="section-title">Área Técnica</h2>
-                <button class="dev-btn" onclick="toggleDev()">
-                    <i class="fas fa-user-secret"></i> Ver Desenvolvedor
-                </button>
-
-                <div id="dev-content" style="display:none;">
-                    <div class="dev-box">
-                        <img src="perfil.jpg" class="dev-photo" alt="Davi">
-                        <div class="dev-info">
-                            <h3>Davi — Desenvolvedor</h3>
-                            <p style="color:#aaa; font-size:14px; margin-bottom:15px;">Sistemas RP • Automação • Front-end</p>
-                            
-                            <div class="skill"><span>Front-end (HTML/CSS/JS)</span><div class="bar"><div style="width:90%"></div></div></div>
-                            <div class="skill"><span>Automação / Bots</span><div class="bar"><div style="width:85%"></div></div></div>
-                            <div class="skill"><span>Sistemas RP</span><div class="bar"><div style="width:95%"></div></div></div>
+        <section class="section" id="dev">
+            <h2 class="section-title">Área Técnica</h2>
+            <button class="dev-btn" onclick="toggleDev()">MOSTRAR INFO DESENVOLVEDOR</button>
+            
+            <div id="dev-content" class="dev-container">
+                <div class="dev-flex">
+                    <img src="perfil.jpg" class="dev-photo" alt="Davi">
+                    <div class="dev-info">
+                        <h3>Davi — Lead Dev</h3>
+                        <p>Responsável pela integração de sistemas e automação RP.</p>
+                        
+                        <div class="skill-box">
+                            <span>Front-end & UI Design</span>
+                            <div class="skill-bar"><div class="skill-per" style="width: 90%;"></div></div>
+                        </div>
+                        <div class="skill-box">
+                            <span>Automação & Discord Bots</span>
+                            <div class="skill-bar"><div class="skill-per" style="width: 85%;"></div></div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="section" id="contato">
-                <h2 class="section-title">Contato</h2>
-                <div class="grid">
-                    <div class="card"><h3><i class="fab fa-discord"></i> Discord</h3><p>midoriwko</p></div>
-                    <div class="card"><h3><i class="fas fa-envelope"></i> Email</h3><p>davibrasnuneslopes@hotmail.com</p></div>
+        <section class="section" id="contato">
+            <h2 class="section-title">Contato e Suporte</h2>
+            <div class="grid">
+                <div class="card">
+                    <i class="fab fa-discord" style="color:var(--primary)"></i>
+                    <p>midoriwko</p>
                 </div>
-            </section>
+                <div class="card">
+                    <i class="fas fa-envelope" style="color:var(--primary)"></i>
+                    <p>davibrasnuneslopes@hotmail.com</p>
+                </div>
+            </div>
+        </section>
 
-            <footer class="footer">
-                © 2026 • EB FALCA RP • Sistema Militar<br>
-                <span style="cursor:pointer; text-decoration: underline;" onclick="scrollToDev()">Administração Técnica</span>
-            </footer>
-        </main>
-    </div>
+        <footer class="footer">
+            © 2026 • EB FALCA RP • Sistema Militar<br>
+            Desenvolvido por Davi
+        </footer>
+    </main>
+</div>
 
-    <script>
-        function toggleDev(){
-            const dev = document.getElementById("dev-content");
-            dev.style.display = (dev.style.display === "none" || dev.style.display === "") ? "block" : "none";
+<script>
+    function toggleDev() {
+        const content = document.getElementById('dev-content');
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+        } else {
+            content.style.display = 'block';
         }
+    }
+</script>
 
-        function scrollToDev(){
-            document.getElementById("dev").scrollIntoView({behavior:"smooth"});
-        }
-    </script>
 </body>
 </html>
