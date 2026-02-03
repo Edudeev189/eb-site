@@ -17,9 +17,10 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; overflow-x: hidden; }
 
-        /* SIDEBAR FIXA */
+        /* SIDEBAR */
         .sidebar {
             width: 280px;
             background: linear-gradient(180deg, var(--panel), #050703);
@@ -50,18 +51,18 @@
         }
         .hero h2 { font-family: 'Orbitron'; font-size: 32px; color: var(--primary); }
 
-        /* SEÇÕES LIMPAS */
         .section { padding: 50px 40px; width: 100%; position: relative; border-bottom: 1px solid var(--border); }
         .section-title { font-family: 'Orbitron'; font-size: 22px; margin-bottom: 25px; border-left: 4px solid var(--primary); padding-left: 15px; }
 
         /* GRID */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: var(--card); border: 1px solid var(--border); padding: 25px; border-radius: 12px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: var(--card); border: 1px solid var(--border); padding: 25px; border-radius: 12px; transition: 0.3s; }
+        .card:hover { border-color: var(--primary); transform: translateY(-3px); }
 
-        /* ÁREA TÉCNICA (SOLUÇÃO DO BUG) */
+        /* ÁREA TÉCNICA */
         .dev-box {
             background: #0c1208; border: 1px solid var(--primary); border-radius: 15px;
-            padding: 30px; margin-top: 20px; display: none; /* Só aparece no clique */
+            padding: 30px; margin-top: 20px; display: none;
         }
         .dev-layout { display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; }
         .dev-photo { width: 150px; height: 150px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover; background: #222; }
@@ -76,7 +77,6 @@
         }
         .btn-toggle:hover { background: var(--primary); color: #000; }
 
-        /* FOOTER NO FUNDO */
         .footer { background: #050703; padding: 40px; text-align: center; border-top: 1px solid var(--border); margin-top: auto; }
 
         @media (max-width: 1024px) {
@@ -89,54 +89,70 @@
 <body>
 
     <aside class="sidebar">
-        <div class="logo"><i class="fas fa-shield-halved"></i><h1>EB</h1></div>
+        <div class="logo"><i class="fas fa-shield-halved"></i><h1>EB • FALCA</h1></div>
         <ul class="menu">
             <li><a href="#"><i class="fas fa-house"></i> <span>Início</span></a></li>
             <li><a href="#painel"><i class="fas fa-chart-line"></i> <span>Painel</span></a></li>
+            <li><a href="#divisoes"><i class="fas fa-users"></i> <span>Divisões</span></a></li>
+            <li><a href="#tecnica"><i class="fas fa-user-secret"></i> <span>Desenvolvedor</span></a></li>
             <li><a href="#contato"><i class="fas fa-envelope"></i> <span>Contato</span></a></li>
         </ul>
     </aside>
 
     <div class="main-container">
-        <section class="hero">
+        <section class="hero" id="inicio">
             <h2>EXÉRCITO BRASILEIRO RP</h2>
-            <p>Sistema Militar de Operações</p>
+            <p>Sistema Militar de Operações Estratégicas</p>
         </section>
 
         <section class="section" id="painel">
             <h2 class="section-title">Painel Operacional</h2>
             <div class="grid">
                 <div class="card"><h3>686+</h3><p>Militares Ativos</p></div>
-                <div class="card"><h3>24/7</h3><p>Servidor Online</p></div>
+                <div class="card"><h3>24/7</h3><p>Servidor Estável</p></div>
+                <div class="card"><h3>SISTEMA</h3><p>Desenvolvimento Exclusivo</p></div>
+            </div>
+        </section>
+
+        <section class="section" id="divisoes">
+            <h2 class="section-title">Divisões de Elite</h2>
+            <div class="grid">
+                <div class="card"><h3>CIE</h3><p>Centro de Inteligência do Exército</p></div>
+                <div class="card"><h3>BAC</h3><p>Batalhão de Ações de Comandos</p></div>
+                <div class="card"><h3>BFE</h3><p>Batalhão de Forças Especiais</p></div>
             </div>
         </section>
 
         <section class="section" id="tecnica">
             <h2 class="section-title">Área Técnica</h2>
-            <button class="btn-toggle" onclick="toggleDev()">ABRIR PERFIL DO DESENVOLVEDOR</button>
+            <button class="btn-toggle" onclick="toggleDev()">VER PERFIL DO DESENVOLVEDOR</button>
             
             <div id="dev-content" class="dev-box">
                 <div class="dev-layout">
-                    <img src="perfil.jpg" class="dev-photo" alt="Davi">
+                    <img src="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg
+" class="dev-photo" alt="Davi">
                     <div class="skill-group">
-                        <h3>Davi — Lead Developer</h3>
-                        <p style="margin-bottom: 20px; color: #aaa;">Desenvolvimento de sistemas e automação militar.</p>
+                        <h3 style="color:var(--primary); font-family:'Orbitron';">Davi — Lead Developer</h3>
+                        <p style="margin-bottom: 20px; color: #aaa;">Especialista em automação Discord e sistemas de Roleplay.</p>
                         
-                        <span>Front-end (HTML / CSS / JS)</span>
+                        <span>Front-end Design</span>
                         <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
                         
-                        <span>Sistemas RP & Integração Discord</span>
-                        <div class="skill-bar"><div class="skill-per skill-fill" style="width: 95%;"></div></div>
+                        <span>Sistemas RP & Integração</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
+                        
+                        <span>Integração Discord</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="section" id="contato">
-            <h2 class="section-title">Contato</h2>
+            <h2 class="section-title">Contato e Suporte</h2>
             <div class="grid">
-                <div class="card"><strong>Discord:</strong> midoriwko</div>
-                <div class="card"><strong>Email:</strong> davibrasnuneslopes@hotmail.com</div>
+                <div class="card"><i class="fab fa-discord"></i> <strong>Discord:</strong> midoriwko</div>
+                <div class="card"><i class="fas fa-envelope"></i> <strong>Email:</strong> davibrasnuneslopes@hotmail.com</div>
             </div>
         </section>
 
