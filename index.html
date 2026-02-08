@@ -134,7 +134,6 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Responsividade */
         @media (max-width: 1024px) {
             .sidebar { width: 100%; height: auto; position: relative; padding: 20px; }
             .main { margin-left: 0; }
@@ -352,7 +351,6 @@
     function openModal(id) { document.getElementById(id).style.display = 'flex'; }
     function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
-    // DATABASE DE LEIS COMPLETO
     const laws = {
         1: `<h2>TÍTULO I – CONDUTA, HIERARQUIA E DISCIPLINA</h2><br>
             <p><strong>Artigo 1º</strong> – Manter o fardamento adequado em todos os âmbitos.</p>
@@ -405,9 +403,8 @@
         openModal('modalLaw');
     }
 
-    // SCANNER DO DISCORD
     function scanDiscord() {
-        const user = document.getElementById('discordInput').value.toLowerCase();
+        const user = document.getElementById('discordInput').value.trim();
         const loader = document.getElementById('discordLoader');
         const result = document.getElementById('discordResult');
 
@@ -419,28 +416,28 @@
             loader.style.display = 'none';
             result.style.display = 'block';
 
-const members = {
-    "1243913958612664511": { nome: "Falca", cargo: "Founder", id: "001", cor: "#ff0000" },
-    "685669953571258389": { nome: "Midori", cargo: "Developer / Co owner", id: "002", cor: "#15ff00" },
-    "1254266294266630148": { nome: "Davi", cargo: "Chefe DEVS", id: "004", cor: "#15ff00" },
-    "1195875337804984350": { nome: "Hwatson", cargo: "Manager", id: "005", cor: "#00d4ff" },
-    "1238482434211975372": { nome: "Japa", cargo: "Administrador", id: "006", cor: "#00d4ff" },
-    "1240467366408880198": { nome: "Rafael", cargo: "Administrador", id: "007", cor: "#00d4ff" },
-    "1303324604810661900": { nome: "Shinazugawua", cargo: "Administrador", id: "008", cor: "#00d4ff" },
-    "1321278047634325587": { nome: "Cloudy", cargo: "Administrador", id: "009", cor: "#00d4ff" },
-    "1443070630294585436": { nome: "Kat4r", cargo: "Helper", id: "010", cor: "#00d4ff" }
-};
+            const members = {
+                "1243913958612664511": { nome: "Falca", cargo: "Founder", id: "001", cor: "#ff0000" },
+                "685669953571258389": { nome: "Midori", cargo: "Developer / Co owner", id: "002", cor: "#15ff00" },
+                "1254266294266630148": { nome: "Vetê", cargo: "Chefe DEVS", id: "013", cor: "#15ff00" },
+                "1195875337804984350": { nome: "Hwatson", cargo: "Manager", id: "005", cor: "#00d4ff" },
+                "1238482434211975372": { nome: "Japa", cargo: "Administrador", id: "006", cor: "#00d4ff" },
+                "1240467366408880198": { nome: "Rafael", cargo: "Administrador", id: "007", cor: "#00d4ff" },
+                "1303324604810661900": { nome: "Shinazugawua", cargo: "Administrador", id: "008", cor: "#00d4ff" },
+                "1321278047634325587": { nome: "Cloudy", cargo: "Administrador", id: "009", cor: "#00d4ff" },
+                "1443070630294585436": { nome: "Kat4r", cargo: "Helper", id: "010", cor: "#00d4ff" }
+            };
 
             const found = members[user];
 
             if(found) {
                 result.innerHTML = `
-                    <div style="border: 1px solid ${found.cor}; padding: 15px; background: rgba(0,0,0,0.8);">
+                    <div style="border: 1px solid ${found.cor}; padding: 15px; background: rgba(0,0,0,0.8); box-shadow: 0 0 15px ${found.cor}33;">
                         <p style="color: ${found.cor}; font-weight: bold;">[!] USUÁRIO LOCALIZADO NO GATEWAY</p>
                         <hr style="border: 0; border-top: 1px solid #222; margin: 10px 0;">
-                        <p><strong>NICK:</strong> ${user.toUpperCase()}</p>
+                        <p><strong>NICK:</strong> ${found.nome}</p>
                         <p><strong>CARGO:</strong> ${found.cargo}</p>
-                        <p><strong>STATUS:</strong> <span style="color: #0f0;">VERIFICADO ✓</span></p>
+                        <p><strong>STATUS:</strong> <span style="color: ${found.cor};">VERIFICADO ✓</span></p>
                         <p style="font-size: 10px; color: #555; margin-top: 10px;">ID INTERNO: EB_DISC_${found.id}</p>
                     </div>`;
             } else {
