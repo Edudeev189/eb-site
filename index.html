@@ -1,237 +1,363 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EB • SISTEMA ESTRATÉGICO</title>
+    
+    <link rel="icon" type="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg" href="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0e2200;
+            --panel: #112e00;
+            --card: #2c2c2c;
+            --primary: #0d6814;
+            --border: #183621b6;
+            --text: #c4c4c4;
+        }
 
-<title>EB - Sistema</title>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; overflow-x: hidden; }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+        /* SIDEBAR */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, var(--panel), #050703);
+            border-right: 2px solid var(--border);
+            padding: 25px;
+            position: fixed;
+            height: 100vh;
+            z-index: 1000;
+        }
+        .logo { text-align: center; margin-bottom: 30px; }
+        .logo i { font-size: 40px; color: var(--primary); }
+        .logo h1 { font-family: 'Orbitron'; font-size: 18px; color: var(--primary); margin-top: 10px; letter-spacing: 2px; }
 
-<style>
+        .menu { list-style: none; margin-top: 20px; }
+        .menu li { margin: 8px 0; }
+        .menu a {
+            display: flex; align-items: center; gap: 12px; padding: 12px;
+            text-decoration: none; color: var(--text); border-radius: 8px; transition: 0.3s;
+            font-size: 14px;
+        }
+        .menu a:hover { background: #1a2411; color: var(--primary); border: 1px solid var(--primary); }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, sans-serif;
+        /* MAIN CONTENT */
+        .main { margin-left: 280px; flex: 1; display: flex; flex-direction: column; width: calc(100% - 280px); }
+
+        .hero {
+            height: 250px;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1605116492794-1f0c8c2f4c78?auto=format&fit=crop&w=1600&q=80') center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+        }
+        .hero h2 { font-family: 'Orbitron'; font-size: 30px; color: var(--primary); text-shadow: 0 0 10px rgba(185, 209, 79, 0.4); }
+
+        .section { padding: 60px 40px; width: 100%; border-bottom: 1px solid var(--border); }
+        .section-title { font-family: 'Orbitron'; font-size: 22px; margin-bottom: 30px; border-left: 4px solid var(--primary); padding-left: 15px; display: flex; align-items: center; gap: 10px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: var(--card); border: 1px solid var(--border); padding: 25px; border-radius: 12px; transition: 0.3s; }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .card h3 { font-family: 'Orbitron'; color: var(--primary); margin-bottom: 10px; font-size: 18px; }
+
+        /* BOTÕES DISCORD */
+        .btn-discord {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 15px;
+            padding: 10px 15px; background: #5865F2; color: white; text-decoration: none;
+            border-radius: 5px; font-size: 13px; font-weight: bold; transition: 0.3s; width: 100%;
+        }
+        .btn-discord:hover { filter: brightness(1.2); transform: scale(1.02); }
+
+        /* ÁREA TÉCNICA */
+        .dev-container { background: #0c1208; border: 1px solid var(--primary); border-radius: 15px; padding: 30px; margin-top: 20px; display: none; }
+        .dev-flex { display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; }
+        .dev-photo { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover; }
+        
+        .skill-group { flex: 1; min-width: 280px; }
+        .skill-bar { width: 100%; height: 10px; background: #1a2411; border-radius: 5px; margin: 8px 0 18px; overflow: hidden; }
+        .skill-fill { height: 100%; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
+
+        .toggle-btn {
+            background: transparent; color: var(--primary); border: 1px solid var(--primary);
+            padding: 12px 25px; border-radius: 8px; cursor: pointer; font-family: 'Orbitron'; transition: 0.3s; font-size: 14px;
+        }
+        .toggle-btn:hover { background: var(--primary); color: #000; box-shadow: 0 0 15px var(--primary); }
+
+        /* FOOTER */
+        .footer { background: #051406; padding: 40px; text-align: center; border-top: 1px solid var(--border); margin-top: auto; }
+
+       /* ===== TABLET ===== */
+@media (max-width: 1024px) {
+
+  .sidebar {
+    width: 80px;
+    padding: 10px;
+  }
+
+  .sidebar h1,
+  .menu span {
+    display: none;
+  }
+
+  .main {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+  }
+
 }
 
-body{
-    background:#020c02;
-    color:#fff;
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Sidebar vira topo */
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    margin-bottom: 15px;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .menu li {
+    margin: 0;
+  }
+
+  .menu span {
+    display: none;
+  }
+
+  /* Main ocupa tudo */
+  .main {
+    margin-left: 0;
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* Seções */
+  .section {
+    padding: 30px 15px;
+  }
+
+  /* Dev area */
+  .dev-flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .skill-group {
+    min-width: 100%;
+  }
+
+  .dev-photo {
+    width: 110px;
+    height: 110px;
+  }
+
+  /* Hero */
+  .hero h2 {
+    font-size: 22px;
+  }
+
 }
 
-/* Sidebar */
 
-.sidebar{
-    width:230px;
-    height:100vh;
-    background:#071407;
-    position:fixed;
-    left:0;
-    top:0;
-    padding:20px 10px;
-    border-right:2px solid #0f3;
+  /* Esconde menu grande */
+  .sidebar {
+    width: 55px;
+  }
+
+  .sidebar span {
+    display: none;
+  }
+
+  /* Ajusta área principal */
+  .main {
+    margin-left: 55px;
+    padding: 12px;
+  }
+
+  /* Card principal */
+  .developer-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+  }
+
+  /* Textos */
+  .developer-card h2 {
+    font-size: 18px;
+  }
+
+  .developer-card p {
+    font-size: 13px;
+  }
+
+  /* Foto */
+  .developer-photo,
+  .developer-card img {
+    width: 110px;
+    height: 110px;
+  }
+
+  /* Barras */
+  .progress {
+    height: 7px;
+  }
+
 }
 
-.sidebar h2{
-    text-align:center;
-    color:#0f3;
-    margin-bottom:30px;
-}
-
-.sidebar ul{
-    list-style:none;
-}
-
-.sidebar ul li{
-    margin:15px 0;
-}
-
-.sidebar ul li a{
-    color:#fff;
-    text-decoration:none;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:10px;
-    border-radius:6px;
-    transition:.3s;
-}
-
-.sidebar ul li a:hover{
-    background:#0f3;
-    color:#000;
-}
-
-/* Main */
-
-.main{
-    margin-left:230px;
-    padding:30px;
-}
-
-/* Card */
-
-.card{
-    background:#081f08;
-    border:1px solid #0f3;
-    border-radius:10px;
-    padding:25px;
-    margin-bottom:20px;
-}
-
-.card h3{
-    color:#0f3;
-    margin-bottom:10px;
-}
-
-/* Progress */
-
-.progress{
-    width:100%;
-    background:#022402;
-    height:12px;
-    border-radius:10px;
-    overflow:hidden;
-    margin:8px 0 15px;
-}
-
-.progress-bar{
-    height:100%;
-    background:linear-gradient(90deg,#0f3,#00ff88);
-}
-
-/* Responsivo */
-
-@media(max-width:768px){
-
-    .sidebar{
-        width:180px;
-    }
-
-    .main{
-        margin-left:180px;
-    }
-}
-
-</style>
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo"><i class="fas fa-shield-halved"></i><h1>EB • FALCA</h1></div>
+        <ul class="menu">
+            <li><a href="#inicio"><i class="fas fa-house"></i> <span>Início</span></a></li>
+            <li><a href="#painel"><i class="fas fa-chart-line"></i> <span>Painel</span></a></li>
+            <li><a href="#divisoes"><i class="fas fa-users"></i> <span>Divisões</span></a></li>
+            <li><a href="#honrarias"><i class="fas fa-medal"></i> <span>Honrarias</span></a></li>
+            <li><a href="#tecnica"><i class="fas fa-code"></i> <span>Área do Dev</span></a></li>
+            <li><a href="#contato"><i class="fas fa-envelope"></i> <span>Contato</span></a></li>
+        </ul>
+    </aside>
 
-<div class="sidebar">
+    <div class="main">
+        <section class="hero" id="inicio">
+            <h2>EXÉRCITO BRASILEIRO RP</h2>
+            <p style="color: #888; margin-top: 10px;">Sistema Estratégico de Gestão Militar</p>
+        </section>
 
-<h2>EB • SIST</h2>
+        <section class="section" id="painel">
+            <h2 class="section-title"><i class="fas fa-terminal"></i> Painel Operacional</h2>
+            <div class="grid">
+                <div class="card"><h3>680+</h3><p>Efetivo Militar Ativo</p></div>
+                <div class="card"><h3>ESTÁVEL</h3><p>Servidor 24h Online</p></div>
+                <div class="card"><h3>AUTORAL</h3><p>Sistemas 100% Próprios</p></div>
+            </div>
+        </section>
 
-<ul>
+        <section class="section" id="divisoes">
+            <h2 class="section-title"><i class="fas fa-crosshairs"></i> Divisões de Elite</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>CIE 🧠</h3>
+                    <p>Centro de Inteligência do Exército.</p>
+                    <p>Diretor: Midori</p>
+                    <a href="https://discord.gg/Ccr7ubBuWb" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> Entrar CIE</a>
+                </div>
+                <div class="card">
+                    <h3>BAC 🏴‍☠️</h3>
+                    <p>Batalhão de Ações e Comandos.</p>
+                    <p>Diretor: Mariel</p>
+                    <a href="https://discord.gg/MwwHQfVwAn" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> Entrar BAC</a>
+                </div>
+                <div class="card">
+                    <h3>BFesp ☠️</h3>
+                    <p>Batalhão de Forças Especiais.</p>
+                    <p>Diretor: Rafael</p>
+                    <a href="https://discord.gg/BCWpHjhe9U" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> Entrar BFE</a>
+                </div>
+            </div>
+        </section>
 
-<li>
-<a href="#inicio">
-<i class="fas fa-house"></i>
-<span>Início</span>
-</a>
-</li>
+        <section class="section" id="honrarias">
+            <h2 class="section-title"><i class="fas fa-award"></i> Quadro de Honra</h2>
+            <div class="grid">
+                <div class="card" style="border-left: 4px solid gold;">
+                    <h3><span><i class="fas fa-code" style="color: rgb(8, 117, 5);"></i> Lead Dev</h3>
+                    <p><strong>Midori</strong></p>
+                    <p style="font-size: 12px; color: #777; margin-top: 10px;">Arquiteto do Sistema.</p><br><br>
+                    <p><strong>Vetê</strong></p>
+                    <p style="font-size: 12px; color: #777; margin-top: 10px;">Developer do Mapa.</</style></p>
+                </div>
+                <div class="card" style="border-left: 4px solid #8ed14f;">
+                    <h3><i class="fas fa-hammer"></i> Master Builders</h3>
+                    <ul style="list-style: none; font-size: 14px; line-height: 1.8;">
+                        <li><i class="fas fa-star" style="color: gold; font-size: 10px;"></i> Falca [Dono]</li>
+                        <li><i class="fas fa-star" style="color: gold; font-size: 10px;"></i> Midori [Co-Owner]</li>
+                        <li><i class="fas fa-star" style="color: gold; font-size: 10px;"></i> Vetê [Chefe Dev]</li>
+                        <li><i class="fas fa-star" style="color: gold; font-size: 10px;"></i> Mariel [Dev]</li>
+                        <li><i class="fa-regular fa-bookmark" style="color: gold; font-size: 10px;"></i> Hwatson [Manager]</li>
+                    </ul>
+                    <p style="font-size: 11px; color: #555; margin-top: 10px;">Excelência em mapeamento e infraestrutura.</p>
+                </div>
+            </div>
+        </section>
 
-<li>
-<a href="#painel">
-<i class="fas fa-chart-line"></i>
-<span>Painel</span>
-</a>
-</li>
+        <section class="section" id="tecnica">
+            <h2 class="section-title"><i class="fas fa-user-gear"></i> Developer Status</h2>
+            <button class="toggle-btn" onclick="toggleDev()">ACESSAR DATABASE DO DESENVOLVEDOR</button>
+            
+            <div id="dev-content" class="dev-container">
+                <div class="dev-flex">
+                    <img src="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg" class="dev-photo" alt="Davi">
+                    <div class="skill-group">
+                        <h3>Davi — Lead Developer</h3>
+                        <p style="margin: 5px 0 20px; color: #aaa;">Expertise Automação Militar.</p>
+                        
+                        <span>Engenheiro de Software (Python & JavaScript)</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+                        
+                        <span>Back end</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+                        
+                        <span>Discord API & Bots</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<li>
-<a href="#divisoes">
-<i class="fas fa-users"></i>
-<span>Divisões</span>
-</a>
-</li>
+        <section class="section" id="contato">
+            <h2 class="section-title"><i class="fas fa-headset"></i> Suporte</h2>
+            <div class="grid">
+                <div class="card">
+                    <i class="fab fa-discord" style="font-size: 25px; color: var(--primary);"></i>
+                    <p style="margin-top: 10px;"><strong>Discord:</strong> midoriwko</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-envelope" style="font-size: 25px; color: var(--primary);"></i>
+                    <p style="margin-top: 10px;"><strong>Email:</strong> davibrasnuneslopes@hotmail.com</p>
+                </div>
+            </div>
+        </section>
 
-<li>
-<a href="#honrarias">
-<i class="fas fa-medal"></i>
-<span>Honrarias</span>
-</a>
-</li>
+        <footer class="footer">
+            <p style="font-family: 'Orbitron'; font-size: 14px; letter-spacing: 1px;">EB • FALCA RP • SISTEMA OFICIAL</p>
+            <p style="color: #444; font-size: 11px; margin-top: 10px;">© 2026 Todos os direitos reservados.</p>
+        </footer>
+    </div>
 
-<li>
-<a href="#tecnica">
-<i class="fas fa-code"></i>
-<span>Área Dev</span>
-</a>
-</li>
-
-<li>
-<a href="#contato">
-<i class="fas fa-envelope"></i>
-<span>Contato</span>
-</a>
-</li>
-
-</ul>
-
-</div>
-
-<!-- MAIN -->
-
-<div class="main">
-
-<div class="card" id="inicio">
-
-<h3>Davi — Lead Developer</h3>
-
-<p>Especialista em Automação Militar</p>
-
-<br>
-
-<p>Engenheiro de Software (Python & JS)</p>
-
-<div class="progress">
-<div class="progress-bar" style="width:90%"></div>
-</div>
-
-<p>Back-end</p>
-<div class="progress">
-<div class="progress-bar" style="width:85%"></div>
-</div>
-
-<p>Discord Bots</p>
-<div class="progress">
-<div class="progress-bar" style="width:80%"></div>
-</div>
-
-</div>
-
-
-<div class="card" id="painel">
-<h3>Painel Geral</h3>
-<p>Status do sistema operacional.</p>
-</div>
-
-<div class="card" id="divisoes">
-<h3>Divisões de Elite</h3>
-<p>Unidades especiais cadastradas.</p>
-</div>
-
-<div class="card" id="honrarias">
-<h3>Honrarias</h3>
-<p>Condecorações registradas.</p>
-</div>
-
-<div class="card" id="tecnica">
-<h3>Área Técnica</h3>
-<p>Projetos e desenvolvimento.</p>
-</div>
-
-<div class="card" id="contato">
-<h3>Contato</h3>
-<p>davi@email.com</p>
-</div>
-
-</div>
-
+    <script>
+        function toggleDev() {
+            const dev = document.getElementById('dev-content');
+            dev.style.display = (dev.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
