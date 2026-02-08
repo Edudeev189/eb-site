@@ -94,6 +94,55 @@
             .sidebar { width: 80px; padding: 10px; }
             .sidebar h1, .menu span { display: none; }
             .main { margin-left: 80px; width: calc(100% - 80px); }
+            /* ===== MOBILE AJUSTE REAL ===== */
+@media (max-width: 768px) {
+
+  /* Esconde menu grande */
+  .sidebar {
+    width: 55px;
+  }
+
+  .sidebar span {
+    display: none;
+  }
+
+  /* Ajusta área principal */
+  .main {
+    margin-left: 55px;
+    padding: 12px;
+  }
+
+  /* Card principal */
+  .developer-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+  }
+
+  /* Textos */
+  .developer-card h2 {
+    font-size: 18px;
+  }
+
+  .developer-card p {
+    font-size: 13px;
+  }
+
+  /* Foto */
+  .developer-photo,
+  .developer-card img {
+    width: 110px;
+    height: 110px;
+  }
+
+  /* Barras */
+  .progress {
+    height: 7px;
+  }
+
+}
+
         }
     </style>
 </head>
