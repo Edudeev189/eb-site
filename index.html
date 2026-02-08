@@ -218,50 +218,95 @@
         </section>
 
         <section id="tab-juridico" class="section">
-            <h2 style="font-family: 'Orbitron'; color: var(--primary); margin-bottom: 30px;">// STM & STF (SISTEMA JUDICIÁRIO)</h2>
-            <div class="grid">
-                <div class="data-card">
-                    <h3>CÓDIGO PENAL MILITAR</h3>
-                    <p>Regulamentação severa sobre insubordinação, deserção e má conduta operacional.</p>
-                    <button class="btn-cyber" style="margin-top: 15px;">ABRIR DOCUMENTO</button>
-                </div>
-                <div class="data-card">
-                    <h3>REGIMENTO STF</h3>
-                    <p>Gestão de patentes superiores e constitucionalidade das normas da corporação.</p>
-                    <button class="btn-cyber" style="margin-top: 15px;">SOLICITAR AUDIÊNCIA</button>
-                </div>
+    <h2 style="font-family: 'Orbitron'; color: var(--primary); margin-bottom: 30px;">// DEPARTAMENTO DE JUSTIÇA MILITAR</h2>
+    
+    <div class="grid">
+        <div class="data-card" style="grid-column: 1 / -1; border: 1px dashed var(--primary);">
+            <h3><i class="fas fa-search"></i> CONSULTAR BANCO DE DADOS (STM)</h3>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="searchPlayer" placeholder="Digite ID ou Nome..." 
+                    style="background: #000; border: 1px solid var(--primary); color: var(--primary); padding: 10px; flex: 1; font-family: 'Orbitron'; font-size: 12px;">
+                <button class="btn-cyber" onclick="simularBusca()">CONSULTAR</button>
             </div>
-        </section>
+            <div id="searchResult" style="margin-top: 15px; font-family: monospace; font-size: 11px; color: #0f0; display: none;"></div>
+        </div>
 
+        <div class="data-card">
+            <h3><i class="fas fa-file-contract"></i> CONSTITUIÇÃO MILITAR</h3>
+            <p>Selecione o Título para descriptografar os artigos:</p>
+            <div style="display: grid; gap: 10px; margin-top: 15px;">
+                <button class="btn-cyber" onclick="openLaw(1)">TÍTULO I: CONDUTA & HIERARQUIA</button>
+                <button class="btn-cyber" onclick="openLaw(2)">TÍTULO II: ARMAMENTO & FORÇA</button>
+                <button class="btn-cyber" onclick="openLaw(3)">TÍTULO III: TRATAMENTO & RESP.</button>
+                <button class="btn-cyber" onclick="openLaw(4)">TÍTULOS IV & V: COMUNICAÇÃO</button>
+                <button class="btn-cyber" onclick="openLaw(6)">TÍTULOS VI & VII: SEGURANÇA</button>
+                <button class="btn-cyber" onclick="openLaw(8)">TÍTULOS VIII ao XII: PODER SUPREMO</button>
+            </div>
+        </div>
+
+        <div class="data-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <h3><i class="fas fa-gavel"></i> SUPREMO TRIBUNAL FEDERAL</h3>
+                <p>Corte Superior responsável por processos de Alto Comando e revisão constitucional.</p>
+            </div>
+            <a href="https://discord.gg/JGNwCDa9Ks" target="_blank" class="btn-cyber" style="text-align: center; text-decoration: none;">SOLICITAR AUDIÊNCIA (DISCORD)</a>
+        </div>
+    </div>
+</section>
         <section id="tab-dev" class="section">
-            <h2 style="font-family: 'Orbitron'; color: var(--primary); margin-bottom: 30px;">// CORE DEVELOPER ACCESS</h2>
-            <div class="data-card" style="max-width: 800px;">
-                <div style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
-                    <img src="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg" style="width: 150px; border: 2px solid var(--primary);">
-                    <div style="flex: 1;">
-                        <h2 style="color: #fff;">DAVI MIDORI</h2>
-                        <p style="color: var(--primary);">LEAD DEVELOPER / SOFTWARE ENGINEER</p>
-                        
-                        <div class="skill-container">
-                            <div class="skill-label"><span>PYTHON / JAVASCRIPT</span><span>100%</span></div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
-                        </div>
-                        <div class="skill-container">
-                            <div class="skill-label"><span>DISCORD API & AUTOMATION</span><span>95%</span></div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
-                        </div>
-                        <div class="skill-container">
-                            <div class="skill-label"><span>BACK-END ARCHITECTURE</span><span>100%</span></div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
-                        </div>
+    <h2 style="font-family: 'Orbitron'; color: var(--primary); margin-bottom: 30px;">// CORE SYSTEMS & DEVELOPMENT</h2>
+    
+    <div class="grid">
+        <div class="data-card" style="background: linear-gradient(45deg, rgba(21,255,0,0.05), transparent);">
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start;">
+                <div style="position: relative;">
+                    <img src="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg" style="width: 120px; border: 2px solid var(--primary); filter: grayscale(50%) contrast(120%);">
+                    <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #000; font-family: 'Orbitron'; font-size: 8px; padding: 2px 5px;">LEAD_DEV</div>
+                </div>
+                <div style="flex: 1;">
+                    <h2 style="font-family: 'Orbitron'; font-size: 1.2rem;">DAVI NUNES</h2>
+                    <p style="color: var(--primary); font-size: 0.8rem; letter-spacing: 2px;">ARQUITETO DE SISTEMAS / FULLSTACK</p>
+                    <div class="skill-container">
+                        <div class="skill-label"><span>BACKEND_ENGINERING</span><span>100%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+                    </div>
+                    <div class="skill-container">
+                        <div class="skill-label"><span>CYBER_SECURITY_API</span><span>98%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 98%;"></div></div>
                     </div>
                 </div>
-                <div style="margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px;">
-                    <p><strong>CONTATO DIRETO:</strong> midoriwko (Discord)</p>
-                    <p><strong>EMAIL:</strong> davibrasnuneslopes@hotmail.com</p>
+            </div>
+            <div style="margin-top: 20px; font-size: 0.8rem; border-top: 1px solid var(--border); padding-top: 10px;">
+                <p><i class="fab fa-discord"></i> midoriwko</p>
+                <p><i class="fas fa-envelope"></i> davibrasnuneslopes@hotmail.com</p>
+            </div>
+        </div>
+
+        <div class="data-card" style="border: 1px solid #00d4ff;">
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start;">
+                <div style="position: relative;">
+                    <div style="width: 120px; height: 120px; background: #000; border: 2px solid #00d4ff; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-user-secret" style="font-size: 50px; color: #00d4ff;"></i>
+                    </div>
+                    <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); background: #00d4ff; color: #000; font-family: 'Orbitron'; font-size: 8px; padding: 2px 5px;">MAP_SCRIPT</div>
+                </div>
+                <div style="flex: 1;">
+                    <h2 style="font-family: 'Orbitron'; font-size: 1.2rem; color: #00d4ff;">VETÊ</h2>
+                    <p style="color: #00d4ff; font-size: 0.8rem; letter-spacing: 2px;">SENIOR GAME SCRIPTER / MAP DEV</p>
+                    <div class="skill-container">
+                        <div class="skill-label"><span>LUAU_SCRIPTING</span><span>100%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 100%; background: #00d4ff; box-shadow: 0 0 10px #00d4ff;"></div></div>
+                    </div>
+                    <div class="skill-container">
+                        <div class="skill-label"><span>MAP_INFRASTRUCTURE</span><span>100%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 100%; background: #00d4ff; box-shadow: 0 0 10px #00d4ff;"></div></div>
+                    </div>
                 </div>
             </div>
-        </section>
+            <p style="margin-top: 15px; font-size: 13px; font-style: italic; color: #00d4ff;">"O gênio por trás de cada mecanismo, porta e sistema dinâmico do nosso mapa oficial."</p>
+        </div>
+    </div>
+</section>
     </main>
 
     <div id="modalGame" class="modal">
@@ -277,32 +322,70 @@
     </div>
 
     <script>
-        // Função para trocar abas sem recarregar
-        function showTab(tabId) {
-            // Esconde todas as seções
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            // Mostra a selecionada
-            document.getElementById(tabId).classList.add('active');
-            
-            // Atualiza menu lateral
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
-        }
+    // Navegação entre abas
+    function showTab(tabId) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        document.querySelectorAll('.nav-menu a').forEach(a => a.classList.remove('active'));
+        if(event) event.currentTarget.classList.add('active');
+    }
 
-        function openModal(id) {
-            document.getElementById(id).style.display = 'flex';
-        }
-        function closeModal(id) {
-            document.getElementById(id).style.display = 'none';
-        }
+    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
-        // Efeito de som opcional ou log no console para ar de dev
-        console.log("EB STRATEGIC SYSTEM INITIALIZED...");
-        console.log("DECRYPTING INTERFACE...");
-    </script>
+    // DATA DAS LEIS
+    const laws = {
+        1: `<h2>TÍTULO I – CONDUTA, HIERARQUIA E DISCIPLINA</h2><br>
+            <p><strong>Art. 1º</strong> – Todo militar deve manter o fardamento adequado...</p>
+            <p><strong>Art. 2º</strong> – Observar e seguir a hierarquia estabelecida...</p>
+            <p><strong>Art. 3º</strong> – Vedado questionamento de caráter pessoal no serviço...</p>
+            <p><strong>Art. 4º</strong> – Gramática formal obrigatória (exceto chat comum e tickets)...</p>
+            <p><strong>Art. 7º</strong> – Uso de abreviações estritamente proibido.</p>
+            <p><strong>Art. 8º</strong> – Abuso de poder é absolutamente inadmissível.</p>`,
+        2: `<h2>TÍTULO II – USO DE ARMAMENTO E FORÇA LETAL</h2><br>
+            <p><strong>Art. 11º</strong> – Proibido força letal contra civil, salvo legítima defesa.</p>
+            <p><em>Cláusula II:</em> Necessário evidência (vídeo) para justificar neutralização.</p>
+            <p><strong>Art. 12º</strong> – Manejo cauteloso de armamento pesado por recrutas.</p>`,
+        3: `<h2>TÍTULO III – TRATAMENTO E RESPONSABILIDADES</h2><br>
+            <p><strong>Art. 13º</strong> – Uso obrigatório de pronomes de tratamento.</p>
+            <p><strong>Art. 15º</strong> – Atendimento prioritário à população e outros militares.</p>
+            <p><em>Parágrafo Único:</em> Graduados têm 20 min de descanso por período.</p>
+            <p><strong>Art. 16º</strong> – Graduados são responsáveis por recrutamentos.</p>`,
+        // Adicione os outros títulos aqui seguindo o mesmo padrão...
+        8: `<h2>TÍTULO VIII ao XII – PODER SUPREMO E REGRAS EXTRAS</h2><br>
+            <p><strong>Art. 51º</strong> – Founder Falcaon7 possui autoridade parcial de intervenção suprema.</p>
+            <p><strong>Art. 52º</strong> – JJ's (Polichinelos) são medidas corretivas. Limite: 50 por ocorrência.</p>
+            <p><strong>Art. 61º</strong> – Abuso de Gamepasses é crime militar.</p>
+            <p><strong>Art. 62º</strong> – Uso de boina obrigatório nas instalações.</p>`
+    };
+
+    function openLaw(titulo) {
+        const content = document.getElementById('lawContent');
+        content.innerHTML = laws[titulo] || "Arquivos corrompidos ou não encontrados.";
+        openModal('modalLaw');
+    }
+
+    function simularBusca() {
+        const input = document.getElementById('searchPlayer').value;
+        const result = document.getElementById('searchResult');
+        if(!input) return;
+        result.style.display = 'block';
+        result.innerHTML = "> ACESSANDO CENTRAL STM... <br>> VARRENDO REGISTROS JUDICIAIS...";
+        setTimeout(() => {
+            result.innerHTML = `<div style="border: 1px solid #0f0; padding: 10px; background: rgba(0,255,0,0.1);">
+                <p style="color: yellow;">[!] CONSULTA CONCLUÍDA: ${input.toUpperCase()}</p>
+                <p>> STATUS: NADA CONSTA</p>
+                <p>> CONDUTA: EXEMPLAR</p>
+            </div>`;
+        }, 1200);
+    }
+</script>
+    <div id="modalLaw" class="modal">
+    <div class="modal-content" style="max-width: 900px; border-color: var(--primary);">
+        <span class="close-modal" onclick="closeModal('modalLaw')">&times;</span>
+        <div id="lawContent" style="font-family: 'Rajdhani'; line-height: 1.8; color: #fff;">
+            </div>
+    </div>
+</div>
 </body>
 </html>
