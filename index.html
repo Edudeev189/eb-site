@@ -225,9 +225,9 @@
             <div class="grid">
                 <div class="data-card" style="grid-column: 1 / -1; border-color: var(--discord);">
                     <h3 style="color: var(--discord);"><i class="fab fa-discord"></i> DISCORD INTEL SCANNER de STAFFS</h3>
-                    <p style="font-size: 11px; margin-bottom: 15px;">Conexão via Gateway Filtrada: Server ID [fgCyt2Vmd8]</p>
+                    <p style="font-size: 11px; margin-bottom: 15px;">Conexão via Gateway Filtrada (Funcionamento só por ID): Server ID [fgCyt2Vmd8]</p>
                     <div style="display: flex; gap: 10px;">
-                        <input type="text" id="discordInput" placeholder="User ID ou Nickname..." 
+                        <input type="text" id="discordInput" placeholder="User ID do STAFF..." 
                             style="background: #000; border: 1px solid var(--discord); color: #fff; padding: 12px; flex: 1; font-family: 'Orbitron';">
                         <button class="btn-cyber" style="border-color: var(--discord); color: var(--discord);" onclick="scanDiscord()">INICIAR SCAN</button>
                     </div>
@@ -306,7 +306,7 @@
                             <h2 style="font-family: 'Orbitron'; font-size: 1.2rem; color: #00d4ff;">VETÊ</h2>
                             <p style="color: #00d4ff; font-size: 0.8rem; letter-spacing: 2px;">SENIOR PROFESSIONAL SOFTWARE DEVELOPER</p>
                             <div class="skill-container">
-                                <div class="skill-label"><span>LUAU / GAME ENGINE</span><span>100%</span></div>
+                                <div class="skill-label"><span>Script / GAME ENGINE</span><span>100%</span></div>
                                 <div class="skill-bar"><div class="skill-fill" style="width: 100%; background: #00d4ff; box-shadow: 0 0 10px #00d4ff;"></div></div>
                             </div>
                             <div class="skill-container">
@@ -419,17 +419,17 @@
             loader.style.display = 'none';
             result.style.display = 'block';
 
-            const members = {
-    "1243913958612664511": { cargo: "Founder", id: "001", cor: "#ff0000" },
-    "685669953571258389": { cargo: "Developer / Co owner", id: "002", cor: "#15ff00" },
-    "1254266294266630148": { cargo: "Chefe DEVS", id: "004", cor: "#15ff00" },
-    "1195875337804984350": { cargo: "Manager", id: "005", cor: "#00d4ff" },
-    "1238482434211975372": { cargo: "Administrador", id: "006", cor: "#00d4ff" },
-    "1240467366408880198": { cargo: "Administrador", id: "007", cor: "#00d4ff" },
-    "1303324604810661900": { cargo: "Administrador", id: "008", cor: "#00d4ff" },
-    "1321278047634325587": { cargo: "Administrador", id: "009", cor: "#00d4ff" },
-    "1443070630294585436": { cargo: "Helper", id: "010", cor: "#00d4ff" }
-};        
+const members = {
+    "1243913958612664511": { nome: "Falca", cargo: "Founder", id: "001", cor: "#ff0000" },
+    "685669953571258389": { nome: "Midori", cargo: "Developer / Co owner", id: "002", cor: "#15ff00" },
+    "1254266294266630148": { nome: "Davi", cargo: "Chefe DEVS", id: "004", cor: "#15ff00" },
+    "1195875337804984350": { nome: "Hwatson", cargo: "Manager", id: "005", cor: "#00d4ff" },
+    "1238482434211975372": { nome: "Nome_Adm1", cargo: "Administrador", id: "006", cor: "#00d4ff" },
+    "1240467366408880198": { nome: "Nome_Adm2", cargo: "Administrador", id: "007", cor: "#00d4ff" },
+    "1303324604810661900": { nome: "Nome_Adm3", cargo: "Administrador", id: "008", cor: "#00d4ff" },
+    "1321278047634325587": { nome: "Nome_Adm4", cargo: "Administrador", id: "009", cor: "#00d4ff" },
+    "1443070630294585436": { nome: "Nome_Helper", cargo: "Helper", id: "010", cor: "#00d4ff" }
+};
 
             const found = members[user];
 
