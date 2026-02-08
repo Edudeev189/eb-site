@@ -16,6 +16,7 @@
             --border: rgba(21, 255, 0, 0.3);
             --text: #c4c4c4;
             --card-bg: rgba(10, 15, 8, 0.8);
+            --discord: #5865F2;
         }
 
         /* Reset e Base */
@@ -126,8 +127,9 @@
             justify-content: center; align-items: center;
         }
         .modal-content {
-            background: #0a0f08; border: 1px solid var(--primary); width: 90%; max-width: 600px;
+            background: #0a0f08; border: 1px solid var(--primary); width: 95%; max-width: 800px;
             padding: 40px; position: relative; box-shadow: 0 0 50px rgba(0,0,0,1);
+            max-height: 85vh; overflow-y: auto;
         }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -147,7 +149,7 @@
 
     <aside class="sidebar">
         <div class="logo">
-            <i class="fa-solid fa-shield"></i>"></i>
+            <i class="fa-solid fa-shield"></i>
             <h1>EB • FALCA</h1>
         </div>
         <ul class="nav-menu">
@@ -187,7 +189,7 @@
                         <li><i class="fas fa-star" style="color: gold;"></i> Midori [Co-Owner]</li>
                         <li><i class="fas fa-star" style="color: gold;"></i> Vetê [Chefe Dev]</li>
                         <li><i class="fas fa-star" style="color: gold;"></i> Mariel [Dev]</li>
-                        <li><i class="fas fa-star" style="color: gold;"></i> Hwatson[Manager]</li>
+                        <li><i class="fas fa-star" style="color: gold;"></i> Hwatson [Manager]</li>
                     </ul>
                 </div>
             </div>
@@ -218,95 +220,105 @@
         </section>
 
         <section id="tab-juridico" class="section">
-    <h2 style="font-family: 'Orbitron'; color: var(--primary); margin-bottom: 30px;">// DEPARTAMENTO DE JUSTIÇA MILITAR</h2>
-    
-    <div class="grid">
-        <div class="data-card" style="grid-column: 1 / -1; border: 1px dashed var(--primary);">
-            <h3><i class="fas fa-search"></i> CONSULTAR BANCO DE DADOS (STM)</h3>
-            <div style="display: flex; gap: 10px;">
-                <input type="text" id="searchPlayer" placeholder="Digite ID ou Nome..." 
-                    style="background: #000; border: 1px solid var(--primary); color: var(--primary); padding: 10px; flex: 1; font-family: 'Orbitron'; font-size: 12px;">
-                <button class="btn-cyber" onclick="simularBusca()">CONSULTAR</button>
-            </div>
-            <div id="searchResult" style="margin-top: 15px; font-family: monospace; font-size: 11px; color: #0f0; display: none;"></div>
-        </div>
+            <h2 style="font-family: 'Orbitron'; color: var(--primary); margin-bottom: 30px;">// DEPARTAMENTO DE JUSTIÇA MILITAR</h2>
+            
+            <div class="grid">
+                <div class="data-card" style="grid-column: 1 / -1; border-color: var(--discord);">
+                    <h3 style="color: var(--discord);"><i class="fab fa-discord"></i> DISCORD INTEL SCANNER</h3>
+                    <p style="font-size: 11px; margin-bottom: 15px;">Conexão via Gateway Filtrada: Server ID [fgCyt2Vmd8]</p>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="discordInput" placeholder="User ID ou Nickname..." 
+                            style="background: #000; border: 1px solid var(--discord); color: #fff; padding: 12px; flex: 1; font-family: 'Orbitron';">
+                        <button class="btn-cyber" style="border-color: var(--discord); color: var(--discord);" onclick="scanDiscord()">INICIAR SCAN</button>
+                    </div>
+                    <div id="discordLoader" style="display:none; margin-top:15px; font-family: monospace; font-size: 11px; color: var(--discord);">
+                        <p>> ACESSANDO GATEWAY DISCORD...</p>
+                        <p>> BUSCANDO MEMBERS_LIST NO SERVIDOR...</p>
+                        <p>> VALIDANDO PERMISSÕES DE CARGO...</p>
+                    </div>
+                    <div id="discordResult" style="margin-top: 20px; display: none;"></div>
+                </div>
 
-        <div class="data-card">
-            <h3><i class="fas fa-file-contract"></i> CONSTITUIÇÃO MILITAR</h3>
-            <p>Selecione o Título para descriptografar os artigos:</p>
-            <div style="display: grid; gap: 10px; margin-top: 15px;">
-                <button class="btn-cyber" onclick="openLaw(1)">TÍTULO I: CONDUTA & HIERARQUIA</button>
-                <button class="btn-cyber" onclick="openLaw(2)">TÍTULO II: ARMAMENTO & FORÇA</button>
-                <button class="btn-cyber" onclick="openLaw(3)">TÍTULO III: TRATAMENTO & RESP.</button>
-                <button class="btn-cyber" onclick="openLaw(4)">TÍTULOS IV & V: COMUNICAÇÃO</button>
-                <button class="btn-cyber" onclick="openLaw(6)">TÍTULOS VI & VII: SEGURANÇA</button>
-                <button class="btn-cyber" onclick="openLaw(8)">TÍTULOS VIII ao XII: PODER SUPREMO</button>
-            </div>
-        </div>
+                <div class="data-card">
+                    <h3><i class="fas fa-file-contract"></i> CONSTITUIÇÃO MILITAR</h3>
+                    <p>Selecione o Título para descriptografar os artigos:</p>
+                    <div style="display: grid; gap: 10px; margin-top: 15px;">
+                        <button class="btn-cyber" onclick="openLaw(1)">TÍTULO I: CONDUTA & HIERARQUIA</button>
+                        <button class="btn-cyber" onclick="openLaw(2)">TÍTULO II: ARMAMENTO & FORÇA</button>
+                        <button class="btn-cyber" onclick="openLaw(3)">TÍTULO III: TRATAMENTO & RESP.</button>
+                        <button class="btn-cyber" onclick="openLaw(4)">TÍTULO IV: COMUNICAÇÃO</button>
+                        <button class="btn-cyber" onclick="openLaw(5)">TÍTULO V: EXCLUSIVIDADE</button>
+                        <button class="btn-cyber" onclick="openLaw(6)">TÍTULOS VI & VII: SEGURANÇA</button>
+                        <button class="btn-cyber" onclick="openLaw(8)">TÍTULOS VIII ao XII: PODER SUPREMO</button>
+                    </div>
+                </div>
 
-        <div class="data-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-                <h3><i class="fas fa-gavel"></i> SUPREMO TRIBUNAL FEDERAL</h3>
-                <p>Corte Superior responsável por processos de Alto Comando e revisão constitucional.</p>
+                <div class="data-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h3><i class="fas fa-gavel"></i> SUPREMO TRIBUNAL MILITAR</h3>
+                        <p>Corte Superior responsável por audiências, processos de Alto Comando e revisão constitucional.</p>
+                    </div>
+                    <a href="https://discord.gg/JGNwCDa9Ks" target="_blank" class="btn-cyber" style="text-align: center; text-decoration: none; border-color: #5865F2; color: #5865F2;">
+                        <i class="fab fa-discord"></i> SOLICITAR AUDIÊNCIA
+                    </a>
+                </div>
             </div>
-            <a href="https://discord.gg/JGNwCDa9Ks" target="_blank" class="btn-cyber" style="text-align: center; text-decoration: none;">SOLICITAR AUDIÊNCIA (DISCORD)</a>
-        </div>
-    </div>
-</section>
+        </section>
+
         <section id="tab-dev" class="section">
-    <h2 style="font-family: 'Orbitron'; color: var(--primary); margin-bottom: 30px;">// CORE SYSTEMS & DEVELOPMENT</h2>
-    
-    <div class="grid">
-        <div class="data-card" style="background: linear-gradient(45deg, rgba(21,255,0,0.05), transparent);">
-            <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start;">
-                <div style="position: relative;">
-                    <img src="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg" style="width: 120px; border: 2px solid var(--primary); filter: grayscale(50%) contrast(120%);">
-                    <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #000; font-family: 'Orbitron'; font-size: 8px; padding: 2px 5px;">LEAD_DEV</div>
-                </div>
-                <div style="flex: 1;">
-                    <h2 style="font-family: 'Orbitron'; font-size: 1.2rem;">DAVI NUNES</h2>
-                    <p style="color: var(--primary); font-size: 0.8rem; letter-spacing: 2px;">ARQUITETO DE SISTEMAS / FULLSTACK</p>
-                    <div class="skill-container">
-                        <div class="skill-label"><span>BACKEND_ENGINERING</span><span>100%</span></div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+            <h2 style="font-family: 'Orbitron'; color: var(--primary); margin-bottom: 30px;">// TECH LEAD & ENGINEERING</h2>
+            
+            <div class="grid">
+                <div class="data-card" style="background: linear-gradient(45deg, rgba(21,255,0,0.05), transparent);">
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start;">
+                        <div style="position: relative;">
+                            <img src="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg" style="width: 120px; border: 2px solid var(--primary); filter: grayscale(20%) contrast(110%);">
+                            <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #000; font-family: 'Orbitron'; font-size: 8px; padding: 2px 5px; white-space: nowrap;">LEAD_DEV / ENGINEER</div>
+                        </div>
+                        <div style="flex: 1;">
+                            <h2 style="font-family: 'Orbitron'; font-size: 1.2rem;">DAVI MIDORI</h2>
+                            <p style="color: var(--primary); font-size: 0.8rem; letter-spacing: 2px;">COMPUTER ENGINEER / FULLSTACK</p>
+                            <div class="skill-container">
+                                <div class="skill-label"><span>BACKEND INFRASTRUCTURE</span><span>100%</span></div>
+                                <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+                            </div>
+                            <div class="skill-container">
+                                <div class="skill-label"><span>PYTHON & JAVASCRIPT</span><span>98%</span></div>
+                                <div class="skill-bar"><div class="skill-fill" style="width: 98%;"></div></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-container">
-                        <div class="skill-label"><span>CYBER_SECURITY_API</span><span>98%</span></div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 98%;"></div></div>
+                    <div style="margin-top: 20px; font-size: 0.8rem; border-top: 1px solid var(--border); padding-top: 10px;">
+                        <p><i class="fab fa-discord"></i> midoriwko</p>
+                        <p><i class="fas fa-envelope"></i> davibrasnuneslopes@hotmail.com</p>
                     </div>
                 </div>
-            </div>
-            <div style="margin-top: 20px; font-size: 0.8rem; border-top: 1px solid var(--border); padding-top: 10px;">
-                <p><i class="fab fa-discord"></i> midoriwko</p>
-                <p><i class="fas fa-envelope"></i> davibrasnuneslopes@hotmail.com</p>
-            </div>
-        </div>
 
-        <div class="data-card" style="border: 1px solid #00d4ff;">
-            <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start;">
-                <div style="position: relative;">
-                    <div style="width: 120px; height: 120px; background: #000; border: 2px solid #00d4ff; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-user-secret" style="font-size: 50px; color: #00d4ff;"></i>
+                <div class="data-card" style="border: 1px solid #00d4ff;">
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start;">
+                        <div style="position: relative;">
+                            <div style="width: 120px; height: 120px; background: #000; border: 2px solid #00d4ff; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-terminal" style="font-size: 50px; color: #00d4ff;"></i>
+                            </div>
+                            <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); background: #00d4ff; color: #000; font-family: 'Orbitron'; font-size: 8px; padding: 2px 5px; white-space: nowrap;">SYSTEMS ARCHITECT</div>
+                        </div>
+                        <div style="flex: 1;">
+                            <h2 style="font-family: 'Orbitron'; font-size: 1.2rem; color: #00d4ff;">VETÊ</h2>
+                            <p style="color: #00d4ff; font-size: 0.8rem; letter-spacing: 2px;">SENIOR PROFESSIONAL SOFTWARE DEVELOPER</p>
+                            <div class="skill-container">
+                                <div class="skill-label"><span>LUAU / GAME ENGINE</span><span>100%</span></div>
+                                <div class="skill-bar"><div class="skill-fill" style="width: 100%; background: #00d4ff; box-shadow: 0 0 10px #00d4ff;"></div></div>
+                            </div>
+                            <div class="skill-container">
+                                <div class="skill-label"><span>BOTS & API INTEGRATION</span><span>100%</span></div>
+                                <div class="skill-bar"><div class="skill-fill" style="width: 100%; background: #00d4ff; box-shadow: 0 0 10px #00d4ff;"></div></div>
+                            </div>
+                        </div>
                     </div>
-                    <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); background: #00d4ff; color: #000; font-family: 'Orbitron'; font-size: 8px; padding: 2px 5px;">MAP_SCRIPT</div>
-                </div>
-                <div style="flex: 1;">
-                    <h2 style="font-family: 'Orbitron'; font-size: 1.2rem; color: #00d4ff;">VETÊ</h2>
-                    <p style="color: #00d4ff; font-size: 0.8rem; letter-spacing: 2px;">SENIOR GAME SCRIPTER / MAP DEV</p>
-                    <div class="skill-container">
-                        <div class="skill-label"><span>LUAU_SCRIPTING</span><span>100%</span></div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 100%; background: #00d4ff; box-shadow: 0 0 10px #00d4ff;"></div></div>
-                    </div>
-                    <div class="skill-container">
-                        <div class="skill-label"><span>MAP_INFRASTRUCTURE</span><span>100%</span></div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 100%; background: #00d4ff; box-shadow: 0 0 10px #00d4ff;"></div></div>
-                    </div>
+                    <p style="margin-top: 15px; font-size: 13px; font-style: italic; color: #00d4ff;">"A lenda por trás de cada mecanismo, porta e sistema dinâmico do nosso mapa oficial. Mestre em automação e scripts de alta performance."</p>
                 </div>
             </div>
-            <p style="margin-top: 15px; font-size: 13px; font-style: italic; color: #00d4ff;">"O gênio por trás de cada mecanismo, porta e sistema dinâmico do nosso mapa oficial."</p>
-        </div>
-    </div>
-</section>
+        </section>
     </main>
 
     <div id="modalGame" class="modal">
@@ -321,8 +333,15 @@
         </div>
     </div>
 
+    <div id="modalLaw" class="modal">
+        <div class="modal-content" style="max-width: 900px; border-color: var(--primary);">
+            <button onclick="closeModal('modalLaw')" style="position: absolute; right: 20px; top: 20px; background: transparent; border: 1px solid var(--primary); color: var(--primary); cursor: pointer; padding: 5px 10px;">X</button>
+            <div id="lawContent" style="font-family: 'Rajdhani'; line-height: 1.8; color: #fff; padding-right: 10px;">
+                </div>
+        </div>
+    </div>
+
     <script>
-    // Navegação entre abas
     function showTab(tabId) {
         document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
         document.getElementById(tabId).classList.add('active');
@@ -333,59 +352,101 @@
     function openModal(id) { document.getElementById(id).style.display = 'flex'; }
     function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
-    // DATA DAS LEIS
+    // DATABASE DE LEIS COMPLETO
     const laws = {
         1: `<h2>TÍTULO I – CONDUTA, HIERARQUIA E DISCIPLINA</h2><br>
-            <p><strong>Art. 1º</strong> – Todo militar deve manter o fardamento adequado...</p>
-            <p><strong>Art. 2º</strong> – Observar e seguir a hierarquia estabelecida...</p>
-            <p><strong>Art. 3º</strong> – Vedado questionamento de caráter pessoal no serviço...</p>
-            <p><strong>Art. 4º</strong> – Gramática formal obrigatória (exceto chat comum e tickets)...</p>
-            <p><strong>Art. 7º</strong> – Uso de abreviações estritamente proibido.</p>
-            <p><strong>Art. 8º</strong> – Abuso de poder é absolutamente inadmissível.</p>`,
+            <p><strong>Artigo 1º</strong> – Manter o fardamento adequado em todos os âmbitos.</p>
+            <p><strong>Artigo 2º</strong> – Observar a hierarquia de patentes e postos.</p>
+            <p><strong>Artigo 3º</strong> – Vedado questionamento pessoal durante o serviço.</p>
+            <p><strong>Artigo 4º</strong> – Gramática obrigatória em canais oficiais e tickets.</p>
+            <p><strong>Artigo 5º</strong> – Infrações sujeitas a afastamento e exílio temporário.</p>
+            <p><strong>Artigo 7º</strong> – Uso de abreviações estritamente proibido.</p>
+            <p><strong>Artigo 8º</strong> – Abuso de poder resultará em julgamento aberto.</p>
+            <p><strong>Artigo 9º</strong> – Proibido o uso de ferramentas externas para vantagem pessoal.</p>
+            <p><strong>Artigo 10º</strong> – Permanência em cargo exige justificativa ao Alto Comando.</p>`,
         2: `<h2>TÍTULO II – USO DE ARMAMENTO E FORÇA LETAL</h2><br>
-            <p><strong>Art. 11º</strong> – Proibido força letal contra civil, salvo legítima defesa.</p>
-            <p><em>Cláusula II:</em> Necessário evidência (vídeo) para justificar neutralização.</p>
-            <p><strong>Art. 12º</strong> – Manejo cauteloso de armamento pesado por recrutas.</p>`,
-        3: `<h2>TÍTULO III – TRATAMENTO E RESPONSABILIDADES</h2><br>
-            <p><strong>Art. 13º</strong> – Uso obrigatório de pronomes de tratamento.</p>
-            <p><strong>Art. 15º</strong> – Atendimento prioritário à população e outros militares.</p>
-            <p><em>Parágrafo Único:</em> Graduados têm 20 min de descanso por período.</p>
-            <p><strong>Art. 16º</strong> – Graduados são responsáveis por recrutamentos.</p>`,
-        // Adicione os outros títulos aqui seguindo o mesmo padrão...
-        8: `<h2>TÍTULO VIII ao XII – PODER SUPREMO E REGRAS EXTRAS</h2><br>
-            <p><strong>Art. 51º</strong> – Founder Falcaon7 possui autoridade parcial de intervenção suprema.</p>
-            <p><strong>Art. 52º</strong> – JJ's (Polichinelos) são medidas corretivas. Limite: 50 por ocorrência.</p>
-            <p><strong>Art. 61º</strong> – Abuso de Gamepasses é crime militar.</p>
-            <p><strong>Art. 62º</strong> – Uso de boina obrigatório nas instalações.</p>`
+            <p><strong>Artigo 11º</strong> – Proibido força letal contra civis, salvo defesa pessoal.</p>
+            <p><em>Cláusula I:</em> Infração leva a julgamento fechado pelo STM.</p>
+            <p><em>Cláusula II:</em> Uso permitido contra civil armado com evidência em vídeo.</p>
+            <p><strong>Artigo 12º</strong> – Armas pesadas exigem cautela extrema, especialmente por recrutas.</p>`,
+        3: `<h2>TÍTULO III – TRATAMENTO E ATRIBUIÇÕES</h2><br>
+            <p><strong>Artigo 13º</strong> – Uso obrigatório de pronomes de tratamento.</p>
+            <p><strong>Artigo 15º</strong> – Atuação prioritária no atendimento à população.</p>
+            <p><em>Parágrafo Único:</em> Graduados têm 20 min de descanso diário.</p>
+            <p><strong>Artigo 16º</strong> – Responsabilidade de recrutamento atribuída aos Graduados.</p>
+            <p><strong>Artigo 17º</strong> – Desobediência a ordens judiciais gera exílio imediato.</p>`,
+        4: `<h2>TÍTULO IV – COMUNICAÇÃO INTERNA</h2><br>
+            <p><strong>Artigo 19º</strong> – Relacionamentos entre militares são proibidos.</p>
+            <p><strong>Artigo 20º</strong> – Conversas privadas sobre serviço são vedadas.</p>
+            <p><strong>Artigo 21º</strong> – Proibido solicitar cargos via DM de Oficiais.</p>
+            <p><strong>Artigo 22º</strong> – Assuntos militares apenas em canais oficiais.</p>`,
+        5: `<h2>TÍTULO V – EXCLUSIVIDADE MILITAR</h2><br>
+            <p><strong>Artigo 24º</strong> – Proibido integrar outras instituições (Roblox/Discord).</p>
+            <p><em>Parágrafo Único:</em> Violação considerada traição, exílio imediato.</p>
+            <p><strong>Artigo 25º</strong> – Cmt Falca possui autoridade para ordens excepcionais.</p>`,
+        6: `<h2>TÍTULO VI & VII – SEGURANÇA E OPERAÇÕES</h2><br>
+            <p><strong>Artigo 26º</strong> – Civil sem acompanhante na base é invasor (neutralização).</p>
+            <p><strong>Artigo 27º</strong> – Pressão psicológica permitida apenas em instrução.</p>
+            <p><strong>Artigo 31º</strong> – Projetos e cursos exclusivos do Founder SoucreBR.</p>
+            <p><strong>Artigo 34º</strong> – Divulgação de dados internos é falta gravíssima.</p>
+            <p><strong>Artigo 44º</strong> – Punições: Advertência, Suspensão, Rebaixamento e Exílio.</p>`,
+        8: `<h2>TÍTULO VIII ao XII – PODER SUPREMO E JJ's</h2><br>
+            <p><strong>Artigo 51º</strong> – Falcaon7 é autoridade máxima de intervenção.</p>
+            <p><strong>Artigo 52º</strong> – JJ’s (polichinelos) como medida corretiva.</p>
+            <p><em>Cláusula I:</em> Limite máximo de 50 JJ’s por ocorrência.</p>
+            <p><strong>Artigo 54º</strong> – Uso de contas fake por exilados gera banimento definitivo.</p>
+            <p><strong>Artigo 61º</strong> – Abuso de Gamepasses é crime disciplinar.</p>
+            <p><strong>Artigo 63º</strong> – Proibido software para automatizar JJ's.</p>`
     };
 
     function openLaw(titulo) {
         const content = document.getElementById('lawContent');
-        content.innerHTML = laws[titulo] || "Arquivos corrompidos ou não encontrados.";
+        content.innerHTML = laws[titulo] || "Arquivos criptografados ou inexistentes.";
         openModal('modalLaw');
     }
 
-    function simularBusca() {
-        const input = document.getElementById('searchPlayer').value;
-        const result = document.getElementById('searchResult');
-        if(!input) return;
-        result.style.display = 'block';
-        result.innerHTML = "> ACESSANDO CENTRAL STM... <br>> VARRENDO REGISTROS JUDICIAIS...";
+    // SCANNER DO DISCORD
+    function scanDiscord() {
+        const user = document.getElementById('discordInput').value.toLowerCase();
+        const loader = document.getElementById('discordLoader');
+        const result = document.getElementById('discordResult');
+
+        if(!user) return;
+        result.style.display = 'none';
+        loader.style.display = 'block';
+
         setTimeout(() => {
-            result.innerHTML = `<div style="border: 1px solid #0f0; padding: 10px; background: rgba(0,255,0,0.1);">
-                <p style="color: yellow;">[!] CONSULTA CONCLUÍDA: ${input.toUpperCase()}</p>
-                <p>> STATUS: NADA CONSTA</p>
-                <p>> CONDUTA: EXEMPLAR</p>
-            </div>`;
-        }, 1200);
+            loader.style.display = 'none';
+            result.style.display = 'block';
+
+            const members = {
+                "falca": { cargo: "Founder / Cmt Supremo", id: "001", cor: "#ff0000" },
+                "davi": { cargo: "Tech Lead / Computer Engineer", id: "002", cor: "#15ff00" },
+                "midori": { cargo: "CIE / Arquiteto", id: "004", cor: "#15ff00" },
+                "vete": { cargo: "Senior Scripter / Dev", id: "003", cor: "#00d4ff" }
+            };
+
+            const found = members[user];
+
+            if(found) {
+                result.innerHTML = `
+                    <div style="border: 1px solid ${found.cor}; padding: 15px; background: rgba(0,0,0,0.8);">
+                        <p style="color: ${found.cor}; font-weight: bold;">[!] USUÁRIO LOCALIZADO NO GATEWAY</p>
+                        <hr style="border: 0; border-top: 1px solid #222; margin: 10px 0;">
+                        <p><strong>NICK:</strong> ${user.toUpperCase()}</p>
+                        <p><strong>CARGO:</strong> ${found.cargo}</p>
+                        <p><strong>STATUS:</strong> <span style="color: #0f0;">VERIFICADO ✓</span></p>
+                        <p style="font-size: 10px; color: #555; margin-top: 10px;">ID INTERNO: EB_DISC_${found.id}</p>
+                    </div>`;
+            } else {
+                result.innerHTML = `
+                    <div style="border: 1px solid #ff0000; padding: 15px; background: rgba(50,0,0,0.3);">
+                        <p style="color: #ff0000;">[X] ERRO: USUÁRIO NÃO IDENTIFICADO</p>
+                        <p style="font-size: 12px;">Membro não encontrado nos registros do Servidor fgCyt2Vmd8.</p>
+                    </div>`;
+            }
+        }, 2000);
     }
-</script>
-    <div id="modalLaw" class="modal">
-    <div class="modal-content" style="max-width: 900px; border-color: var(--primary);">
-        <span class="close-modal" onclick="closeModal('modalLaw')">&times;</span>
-        <div id="lawContent" style="font-family: 'Rajdhani'; line-height: 1.8; color: #fff;">
-            </div>
-    </div>
-</div>
+    </script>
 </body>
 </html>
