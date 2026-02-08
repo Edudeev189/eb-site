@@ -3,264 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EB • INTERFACE ESTRATÉGICA</title>
+    <title>EB • HIGH-TECH INTERFACE</title>
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg: #050804;
-            --panel: rgba(17, 46, 0, 0.4);
+            --bg: #030502;
             --primary: #15ff00;
-            --accent: #0d6814;
-            --text: #e0e0e0;
-            --glass: rgba(255, 255, 255, 0.03);
+            --primary-dim: rgba(21, 255, 0, 0.15);
+            --border: rgba(21, 255, 0, 0.3);
+            --text: #c4c4c4;
+            --card-bg: rgba(10, 15, 8, 0.8);
         }
 
+        /* Reset e Base */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: 'Rajdhani', sans-serif; 
             background: var(--bg); 
             color: var(--text); 
+            line-height: 1.6;
             overflow-x: hidden;
-            background-image: 
-                linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-                repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(21, 255, 0, 0.03) 1px, rgba(21, 255, 0, 0.03) 2px);
         }
 
-        /* SIDEBAR FUTURISTA */
+        /* Fundo Dinâmico */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(21, 255, 0, 0.05) 0%, transparent 70%),
+                url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            z-index: -1;
+        }
+
+        /* Overlay de Ruído/Scanline */
+        .overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 1px, transparent 2px);
+            pointer-events: none; z-index: 1000;
+        }
+
+        /* Sidebar Futurista */
         .sidebar {
-            width: 280px;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(15px);
-            border-right: 1px solid var(--primary);
-            position: fixed;
-            height: 100vh;
-            z-index: 1000;
-            padding: 30px 20px;
-        }
-
-        .logo { 
-            text-align: center; 
-            margin-bottom: 50px; 
-            text-shadow: 0 0 10px var(--primary);
-        }
-        .logo h1 { font-family: 'Orbitron'; font-size: 1.2rem; color: var(--primary); letter-spacing: 3px; }
-
-        .menu { list-style: none; }
-        .menu li { margin: 15px 0; }
-        .menu a {
-            color: var(--text);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 12px;
-            border-radius: 4px;
-            transition: 0.4s;
-            border-left: 2px solid transparent;
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-        .menu a:hover { 
-            background: rgba(21, 255, 0, 0.1); 
-            border-left: 2px solid var(--primary);
-            color: var(--primary);
-            box-shadow: inset 5px 0 15px rgba(21, 255, 0, 0.1);
-        }
-
-        /* MAIN CONTENT */
-        .main { margin-left: 280px; padding-bottom: 50px; }
-
-        .hero {
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80') center/cover;
-            border-bottom: 1px solid var(--primary);
-            position: relative;
-        }
-        .hero::before {
-            content: "";
-            position: absolute; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, transparent, var(--bg));
-        }
-
-        .hero-content { position: relative; z-index: 2; text-align: center; }
-        .hero h2 { font-family: 'Orbitron'; font-size: 3.5rem; color: #fff; text-transform: uppercase; }
-        .scan-line { width: 100%; height: 2px; background: var(--primary); opacity: 0.3; position: absolute; top: 0; animation: scan 4s linear infinite; }
-
-        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
-
-        /* CARDS */
-        .section { padding: 60px 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        
-        .card { 
-            background: var(--glass);
-            border: 1px solid rgba(21, 255, 0, 0.2);
-            padding: 30px;
-            position: relative;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-        .card:hover { 
-            border-color: var(--primary); 
-            box-shadow: 0 0 20px rgba(21, 255, 0, 0.1);
-            transform: translateY(-5px);
-        }
-        .card::after {
-            content: ""; position: absolute; top: 0; right: 0;
-            width: 20px; height: 20px; border-top: 2px solid var(--primary); border-right: 2px solid var(--primary);
-        }
-
-        /* BOTÕES FUTURISTAS */
-        .btn-action {
-            background: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 15px 30px;
-            font-family: 'Orbitron';
-            cursor: pointer;
-            transition: 0.3s;
-            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-        }
-        .btn-action:hover { background: var(--primary); color: #000; font-weight: bold; }
-
-        /* MODAL (ÁREAS QUE ABREM NO SITE) */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 2000;
+            width: 280px; background: rgba(0, 0, 0, 0.95);
+            border-right: 1px solid var(--primary); position: fixed;
+            height: 100vh; z-index: 900; padding: 40px 20px;
             backdrop-filter: blur(10px);
+        }
+
+        .logo { margin-bottom: 40px; text-align: center; }
+        .logo i { font-size: 45px; color: var(--primary); filter: drop-shadow(0 0 10px var(--primary)); }
+        .logo h1 { font-family: 'Orbitron'; font-size: 1.1rem; letter-spacing: 3px; margin-top: 15px; color: #fff; }
+
+        .nav-menu { list-style: none; }
+        .nav-menu li { margin-bottom: 10px; }
+        .nav-menu a {
+            color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 15px;
+            padding: 12px 15px; border: 1px solid transparent; transition: 0.3s;
+            clip-path: polygon(0 0, 95% 0, 100% 25%, 100% 100%, 5% 100%, 0 75%);
+        }
+        .nav-menu a:hover, .nav-menu a.active {
+            background: var(--primary-dim); border: 1px solid var(--primary); color: var(--primary);
+        }
+
+        /* Conteúdo Principal */
+        .main { margin-left: 280px; min-height: 100vh; position: relative; }
+
+        /* Header / Stats Bar */
+        .top-bar {
+            background: rgba(10, 15, 8, 0.9); padding: 15px 40px;
+            border-bottom: 1px solid var(--border); display: flex;
+            justify-content: space-between; align-items: center;
+            font-family: 'Orbitron'; font-size: 10px; letter-spacing: 2px;
+        }
+
+        /* Hero */
+        .hero {
+            height: 400px; background: linear-gradient(rgba(0,0,0,0.7), var(--bg)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80') center/80% no-repeat;
+            display: flex; flex-direction: column; justify-content: center; padding: 40px;
+        }
+        .hero h2 { font-family: 'Orbitron'; font-size: 3rem; color: #fff; line-height: 1; }
+        .hero p { color: var(--primary); font-weight: bold; margin-top: 10px; }
+
+        /* Grid de Informações */
+        .section { padding: 40px; display: none; animation: fadeIn 0.5s forwards; }
+        .section.active { display: block; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+
+        .data-card {
+            background: var(--card-bg); border: 1px solid var(--border);
+            padding: 25px; position: relative; transition: 0.3s;
+            overflow: hidden;
+        }
+        .data-card:hover { border-color: var(--primary); box-shadow: 0 0 20px var(--primary-dim); }
+        .data-card::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--primary);
+        }
+
+        .data-card h3 { font-family: 'Orbitron'; font-size: 1rem; color: var(--primary); margin-bottom: 15px; }
+
+        /* Botões Estilo Cyber */
+        .btn-cyber {
+            background: transparent; border: 1px solid var(--primary);
+            color: var(--primary); padding: 10px 20px; font-family: 'Orbitron';
+            font-size: 10px; cursor: pointer; transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+        }
+        .btn-cyber:hover { background: var(--primary); color: #000; box-shadow: 0 0 15px var(--primary); }
+
+        /* Skills/Dev Area */
+        .skill-container { margin-top: 15px; }
+        .skill-label { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 5px; }
+        .skill-bar { height: 4px; background: #1a1a1a; width: 100%; border-radius: 2px; }
+        .skill-fill { height: 100%; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
+
+        /* Modais */
+        .modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); z-index: 2000; backdrop-filter: blur(10px);
             justify-content: center; align-items: center;
         }
         .modal-content {
-            background: #0a0e08;
-            border: 1px solid var(--primary);
-            width: 90%; max-width: 800px;
-            max-height: 80vh;
-            padding: 40px;
-            overflow-y: auto;
-            position: relative;
+            background: #0a0f08; border: 1px solid var(--primary); width: 90%; max-width: 600px;
+            padding: 40px; position: relative; box-shadow: 0 0 50px rgba(0,0,0,1);
         }
-        .close-modal { position: absolute; top: 20px; right: 20px; color: var(--primary); cursor: pointer; font-size: 1.5rem; }
 
-        /* RESPONSIVIDADE */
-        @media (max-width: 992px) {
-            .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--primary); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .sidebar { width: 100%; height: auto; position: relative; padding: 20px; }
             .main { margin-left: 0; }
-            .menu { display: flex; flex-wrap: wrap; justify-content: center; }
+            .nav-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
             .hero h2 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
+    <div class="overlay"></div>
+
     <aside class="sidebar">
         <div class="logo">
-            <i class="fas fa-microchip" style="font-size: 40px; color: var(--primary);"></i>
+            <i class="fas fa-biohazard"></i>
             <h1>EB • FALCA</h1>
         </div>
-        <ul class="menu">
-            <li><a href="#" onclick="openModal('modalGame')"><i class="fas fa-gamepad"></i> <span>Acessar Jogo</span></a></li>
-            <li><a href="#" onclick="openModal('modalJuridico')"><i class="fas fa-gavel"></i> <span>Leis STM / STF</span></a></li>
-            <li><a href="#divisoes"><i class="fas fa-shield-halved"></i> <span>Divisões</span></a></li>
-            <li><a href="#tecnica"><i class="fas fa-terminal"></i> <span>Terminal Dev</span></a></li>
+        <ul class="nav-menu">
+            <li><a href="#" class="active" onclick="showTab('tab-inicio')"><i class="fas fa-terminal"></i> CENTRAL</a></li>
+            <li><a href="#" onclick="showTab('tab-divisoes')"><i class="fas fa-shield-halved"></i> DIVISÕES</a></li>
+            <li><a href="#" onclick="showTab('tab-juridico')"><i class="fas fa-gavel"></i> JURÍDICO</a></li>
+            <li><a href="#" onclick="showTab('tab-dev')"><i class="fas fa-code-branch"></i> DATABASE DEV</a></li>
+            <li><a href="#" onclick="openModal('modalGame')"><i class="fas fa-play"></i> INICIAR JOGO</a></li>
         </ul>
     </aside>
 
-    <div class="main">
-        <div class="scan-line"></div>
-        <section class="hero">
-            <div class="hero-content">
-                <p style="letter-spacing: 5px; color: var(--primary);">SISTEMA DE DEFESA NACIONAL</p>
-                <h2>EB STRATEGIC</h2>
-                <button class="btn-action" onclick="openModal('modalGame')">INICIAR OPERAÇÃO</button>
-            </div>
-        </section>
+    <main class="main">
+        <div class="top-bar">
+            <span>SISTEMA: OPERACIONAL</span>
+            <span>EFETIVO: 680+ ATIVOS</span>
+            <span>Uptime: 99.9%</span>
+        </div>
 
-        <section class="section">
+        <section id="tab-inicio" class="section active">
+            <div class="hero">
+                <p>// ACESSO AO COMANDO ESTRATÉGICO</p>
+                <h2>HIGH-TECH MILITARY<br>INTERFACE</h2>
+                <div style="margin-top: 20px;">
+                    <button class="btn-cyber" onclick="openModal('modalGame')">CONECTAR AO SERVIDOR</button>
+                </div>
+            </div>
+
             <div class="grid">
-                <div class="card">
-                    <h3 style="color: var(--primary); font-family: 'Orbitron';"><i class="fas fa-satellite"></i> STM</h3>
-                    <p style="margin-top: 10px; font-size: 0.9rem;">Superior Tribunal Militar. Gestão de crimes militares e condutas disciplinares internas.</p>
-                    <br>
-                    <button class="btn-action" style="font-size: 10px;" onclick="openModal('modalJuridico')">LER CÓDIGO PENAL</button>
+                <div class="data-card">
+                    <h3>ESTATÍSTICAS ATUAIS</h3>
+                    <p>Servidor 24h Online com redundância de dados. Sistemas 100% autorais e criptografados.</p>
                 </div>
-                <div class="card">
-                    <h3 style="color: var(--primary); font-family: 'Orbitron';"><i class="fas fa-balance-scale"></i> STF</h3>
-                    <p style="margin-top: 10px; font-size: 0.9rem;">Supremo Tribunal Federal. Guardião da Constituição e processos de alta patente.</p>
-                    <br>
-                    <button class="btn-action" style="font-size: 10px;" onclick="openModal('modalJuridico')">VER REGIMENTO</button>
+                <div class="data-card">
+                    <h3>QUADRO DE HONRA</h3>
+                    <ul style="list-style: none; font-size: 14px;">
+                        <li><i class="fas fa-star" style="color: gold;"></i> Falca [Dono]</li>
+                        <li><i class="fas fa-star" style="color: gold;"></i> Midori [Co-Owner]</li>
+                        <li><i class="fas fa-star" style="color: gold;"></i> Vetê [Chefe Dev]</li>
+                        <li><i class="fas fa-star" style="color: gold;"></i> Mariel [Dev]</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="tecnica">
-            <div class="card" style="background: rgba(0,0,0,0.5);">
-                <h2 style="font-family: 'Orbitron'; color: var(--primary); margin-bottom: 20px;">ACCESSING DEVELOPER DATABASE...</h2>
-                <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-                    <img src="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg" style="width: 100px; border: 1px solid var(--primary); padding: 5px;">
-                    <div>
-                        <p>> USER: DAVI_LEAD_DEV</p>
-                        <p>> STATUS: ONLINE</p>
-                        <p>> ENCRYPTION: 256-BIT AES</p>
+        <section id="tab-divisoes" class="section">
+            <h2 style="font-family: 'Orbitron'; color: var(--primary); margin-bottom: 30px;">// DIVISÕES DE ELITE</h2>
+            <div class="grid">
+                <div class="data-card">
+                    <h3>CIE 🧠</h3>
+                    <p>Centro de Inteligência do Exército.</p>
+                    <p><small>DIRETOR: MIDORI</small></p>
+                    <a href="https://discord.gg/Ccr7ubBuWb" class="btn-cyber" style="margin-top: 15px;">DISCORD CIE</a>
+                </div>
+                <div class="data-card">
+                    <h3>BAC 🏴‍☠️</h3>
+                    <p>Batalhão de Ações e Comandos.</p>
+                    <p><small>DIRETOR: MARIEL</small></p>
+                    <a href="https://discord.gg/MwwHQfVwAn" class="btn-cyber" style="margin-top: 15px;">DISCORD BAC</a>
+                </div>
+                <div class="data-card">
+                    <h3>BFesp ☠️</h3>
+                    <p>Batalhão de Forças Especiais.</p>
+                    <p><small>DIRETOR: RAFAEL</small></p>
+                    <a href="https://discord.gg/BCWpHjhe9U" class="btn-cyber" style="margin-top: 15px;">DISCORD BFE</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-juridico" class="section">
+            <h2 style="font-family: 'Orbitron'; color: var(--primary); margin-bottom: 30px;">// STM & STF (SISTEMA JUDICIÁRIO)</h2>
+            <div class="grid">
+                <div class="data-card">
+                    <h3>CÓDIGO PENAL MILITAR</h3>
+                    <p>Regulamentação severa sobre insubordinação, deserção e má conduta operacional.</p>
+                    <button class="btn-cyber" style="margin-top: 15px;">ABRIR DOCUMENTO</button>
+                </div>
+                <div class="data-card">
+                    <h3>REGIMENTO STF</h3>
+                    <p>Gestão de patentes superiores e constitucionalidade das normas da corporação.</p>
+                    <button class="btn-cyber" style="margin-top: 15px;">SOLICITAR AUDIÊNCIA</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-dev" class="section">
+            <h2 style="font-family: 'Orbitron'; color: var(--primary); margin-bottom: 30px;">// CORE DEVELOPER ACCESS</h2>
+            <div class="data-card" style="max-width: 800px;">
+                <div style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
+                    <img src="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg" style="width: 150px; border: 2px solid var(--primary);">
+                    <div style="flex: 1;">
+                        <h2 style="color: #fff;">DAVI NUNES</h2>
+                        <p style="color: var(--primary);">LEAD DEVELOPER / SOFTWARE ENGINEER</p>
+                        
+                        <div class="skill-container">
+                            <div class="skill-label"><span>PYTHON / JAVASCRIPT</span><span>100%</span></div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+                        </div>
+                        <div class="skill-container">
+                            <div class="skill-label"><span>DISCORD API & AUTOMATION</span><span>95%</span></div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
+                        </div>
+                        <div class="skill-container">
+                            <div class="skill-label"><span>BACK-END ARCHITECTURE</span><span>100%</span></div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+                        </div>
                     </div>
                 </div>
+                <div style="margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px;">
+                    <p><strong>CONTATO DIRETO:</strong> midoriwko (Discord)</p>
+                    <p><strong>EMAIL:</strong> davibrasnuneslopes@hotmail.com</p>
+                </div>
             </div>
         </section>
-    </div>
+    </main>
 
     <div id="modalGame" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('modalGame')">&times;</span>
-            <h2 style="font-family: 'Orbitron'; color: var(--primary);">CONEXÃO COM O SERVIDOR</h2>
-            <hr style="border: 0; border-top: 1px solid var(--primary); margin: 20px 0;">
-            <p>Você está prestes a entrar na zona de operação oficial do Exército Brasileiro RP.</p>
+            <h2 style="font-family: 'Orbitron'; color: var(--primary); margin-bottom: 20px;">INICIALIZANDO PROTOCOLO...</h2>
+            <p>Você será redirecionado para a base militar principal. Certifique-se de estar com o uniforme regulamentar.</p>
             <br>
-            <p><strong>Requisitos:</strong> Roblox instalado e Discord ativo.</p>
-            <br><br>
-            <center>
-                <a href="LINK_DO_SEU_JOGO_AQUI" target="_blank" class="btn-action" style="text-decoration: none;">IMPLANTAÇÃO IMEDIATA</a>
-            </center>
-        </div>
-    </div>
-
-    <div id="modalJuridico" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('modalJuridico')">&times;</span>
-            <h2 style="font-family: 'Orbitron'; color: var(--primary);">DEPARTAMENTO JURÍDICO (STM/STF)</h2>
-            <hr style="border: 0; border-top: 1px solid var(--primary); margin: 20px 0;">
-            <h3>Artigo 1º - Hierarquia e Disciplina</h3>
-            <p>A base da organização militar repousa na hierarquia e na disciplina rigorosa em todos os níveis.</p>
-            <br>
-            <h3>Artigo 2º - Código Penal Militar</h3>
-            <p>Qualquer ato de insubordinação será julgado pelo STM com pena passível de exoneração imediata.</p>
-            <br>
-            <p style="color: yellow; font-size: 0.8rem;">[ DOCUMENTO CLASSIFICADO - NÍVEL 5 ]</p>
+            <div style="display: flex; gap: 10px;">
+                <a href="LINK_DO_JOGO" class="btn-cyber">CONFIRMAR</a>
+                <button class="btn-cyber" onclick="closeModal('modalGame')" style="border-color: #ff0000; color: #ff0000;">ABORTAR</button>
+            </div>
         </div>
     </div>
 
     <script>
+        // Função para trocar abas sem recarregar
+        function showTab(tabId) {
+            // Esconde todas as seções
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Mostra a selecionada
+            document.getElementById(tabId).classList.add('active');
+            
+            // Atualiza menu lateral
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+
         function openModal(id) {
             document.getElementById(id).style.display = 'flex';
         }
         function closeModal(id) {
             document.getElementById(id).style.display = 'none';
         }
-        // Fecha modal se clicar fora dele
-        window.onclick = function(event) {
-            if (event.target.className === 'modal') {
-                event.target.style.display = 'none';
-            }
-        }
+
+        // Efeito de som opcional ou log no console para ar de dev
+        console.log("EB STRATEGIC SYSTEM INITIALIZED...");
+        console.log("DECRYPTING INTERFACE...");
     </script>
 </body>
 </html>
