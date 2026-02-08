@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EB • SISTEMA ESTRATÉGICO</title>
     
-    <link rel="icon" type="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg" href="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg">
-    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg: #0e2200;
             --panel: #112e00;
-            --card: #2c2c2c;
+            --card: #1a1a1a;
             --primary: #0d6814;
             --border: #183621b6;
             --text: #c4c4c4;
@@ -21,235 +20,127 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; overflow-x: hidden; }
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            display: flex; 
+            min-height: 100vh;
+        }
 
-        /* SIDEBAR */
+        /* SIDEBAR - DESKTOP */
         .sidebar {
-            width: 280px;
+            width: 260px;
             background: linear-gradient(180deg, var(--panel), #050703);
             border-right: 2px solid var(--border);
             padding: 25px;
             position: fixed;
             height: 100vh;
             z-index: 1000;
+            transition: 0.3s;
         }
         .logo { text-align: center; margin-bottom: 30px; }
-        .logo i { font-size: 40px; color: var(--primary); }
-        .logo h1 { font-family: 'Orbitron'; font-size: 18px; color: var(--primary); margin-top: 10px; letter-spacing: 2px; }
+        .logo i { font-size: 35px; color: var(--primary); }
+        .logo h1 { font-family: 'Orbitron'; font-size: 16px; color: var(--primary); margin-top: 10px; letter-spacing: 1px; }
 
-        .menu { list-style: none; margin-top: 20px; }
-        .menu li { margin: 8px 0; }
+        .menu { list-style: none; }
+        .menu li { margin: 5px 0; }
         .menu a {
             display: flex; align-items: center; gap: 12px; padding: 12px;
             text-decoration: none; color: var(--text); border-radius: 8px; transition: 0.3s;
             font-size: 14px;
         }
-        .menu a:hover { background: #1a2411; color: var(--primary); border: 1px solid var(--primary); }
+        .menu a:hover { background: rgba(13, 104, 20, 0.1); color: var(--primary); border: 1px solid var(--primary); }
 
         /* MAIN CONTENT */
-        .main { margin-left: 280px; flex: 1; display: flex; flex-direction: column; width: calc(100% - 280px); }
+        .main { margin-left: 260px; flex: 1; width: calc(100% - 260px); display: flex; flex-direction: column; }
 
         .hero {
-            height: 250px;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1605116492794-1f0c8c2f4c78?auto=format&fit=crop&w=1600&q=80') center/cover;
+            height: 300px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(14, 34, 0, 0.9)), url('https://images.unsplash.com/photo-1605116492794-1f0c8c2f4c78?auto=format&fit=crop&w=1600&q=80') center/cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            padding: 20px;
         }
-        .hero h2 { font-family: 'Orbitron'; font-size: 30px; color: var(--primary); text-shadow: 0 0 10px rgba(185, 209, 79, 0.4); }
+        .hero h2 { font-family: 'Orbitron'; font-size: clamp(1.5rem, 5vw, 2.5rem); color: var(--primary); text-shadow: 0 0 15px rgba(13, 104, 20, 0.5); }
 
-        .section { padding: 60px 40px; width: 100%; border-bottom: 1px solid var(--border); }
-        .section-title { font-family: 'Orbitron'; font-size: 22px; margin-bottom: 30px; border-left: 4px solid var(--primary); padding-left: 15px; display: flex; align-items: center; gap: 10px; }
+        .section { padding: 40px; border-bottom: 1px solid var(--border); }
+        .section-title { font-family: 'Orbitron'; font-size: 20px; margin-bottom: 25px; border-left: 4px solid var(--primary); padding-left: 15px; display: flex; align-items: center; gap: 10px; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: var(--card); border: 1px solid var(--border); padding: 25px; border-radius: 12px; transition: 0.3s; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: var(--card); border: 1px solid var(--border); padding: 20px; border-radius: 12px; transition: 0.3s; }
         .card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .card h3 { font-family: 'Orbitron'; color: var(--primary); margin-bottom: 10px; font-size: 18px; }
+        .card h3 { font-family: 'Orbitron'; color: var(--primary); margin-bottom: 10px; font-size: 1.1rem; }
 
-        /* BOTÕES DISCORD */
         .btn-discord {
             display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 15px;
-            padding: 10px 15px; background: #5865F2; color: white; text-decoration: none;
-            border-radius: 5px; font-size: 13px; font-weight: bold; transition: 0.3s; width: 100%;
+            padding: 12px; background: #5865F2; color: white; text-decoration: none;
+            border-radius: 6px; font-size: 12px; font-weight: bold; transition: 0.3s; width: 100%;
         }
-        .btn-discord:hover { filter: brightness(1.2); transform: scale(1.02); }
 
-        /* ÁREA TÉCNICA */
-        .dev-container { background: #0c1208; border: 1px solid var(--primary); border-radius: 15px; padding: 30px; margin-top: 20px; display: none; }
-        .dev-flex { display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; }
-        .dev-photo { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover; }
-        
-        .skill-group { flex: 1; min-width: 280px; }
-        .skill-bar { width: 100%; height: 10px; background: #1a2411; border-radius: 5px; margin: 8px 0 18px; overflow: hidden; }
-        .skill-fill { height: 100%; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
-
+        /* ÁREA DO DEV */
         .toggle-btn {
             background: transparent; color: var(--primary); border: 1px solid var(--primary);
-            padding: 12px 25px; border-radius: 8px; cursor: pointer; font-family: 'Orbitron'; transition: 0.3s; font-size: 14px;
+            padding: 15px 25px; border-radius: 8px; cursor: pointer; font-family: 'Orbitron'; 
+            transition: 0.3s; font-size: 13px; width: 100%; max-width: 400px;
         }
-        .toggle-btn:hover { background: var(--primary); color: #000; box-shadow: 0 0 15px var(--primary); }
+        .toggle-btn:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(13, 104, 20, 0.4); }
 
-        /* FOOTER */
-        .footer { background: #051406; padding: 40px; text-align: center; border-top: 1px solid var(--border); margin-top: auto; }
+        .dev-container { 
+            background: #050a04; border: 1px solid var(--primary); border-radius: 15px; 
+            padding: 25px; margin-top: 20px; display: none; 
+        }
+        .dev-flex { display: flex; flex-wrap: wrap; gap: 25px; align-items: center; }
+        .dev-photo { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover; }
+        
+        .skill-group { flex: 1; min-width: 250px; }
+        .skill-group span { font-size: 13px; display: block; margin-top: 10px; color: #eee; }
+        .skill-bar { width: 100%; height: 8px; background: #1a2411; border-radius: 4px; margin: 5px 0; overflow: hidden; }
+        .skill-fill { height: 100%; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
 
-       /* ===== TABLET ===== */
-@media (max-width: 1024px) {
+        .footer { padding: 30px; text-align: center; background: #050703; border-top: 1px solid var(--border); }
 
-  .sidebar {
-    width: 80px;
-    padding: 10px;
-  }
+        /* RESPONSIVIDADE (MOBILE & TABLET) */
+        @media (max-width: 992px) {
+            body { flex-direction: column; }
+            .sidebar {
+                width: 100%; height: auto; position: relative; padding: 15px;
+                border-right: none; border-bottom: 2px solid var(--border);
+            }
+            .main { margin-left: 0; width: 100%; }
+            .logo { margin-bottom: 10px; }
+            .menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
+            .menu a span { display: none; }
+            .menu a { padding: 10px; }
+        }
 
-  .sidebar h1,
-  .menu span {
-    display: none;
-  }
-
-  .main {
-    margin-left: 80px;
-    width: calc(100% - 80px);
-  }
-
-}
-
-
-/* ===== MOBILE ===== */
-@media (max-width: 768px) {
-
-  html, body {
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  /* Sidebar vira topo */
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .logo {
-    margin-bottom: 15px;
-  }
-
-  .menu {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  }
-
-  .menu li {
-    margin: 0;
-  }
-
-  .menu span {
-    display: none;
-  }
-
-  /* Main ocupa tudo */
-  .main {
-    margin-left: 0;
-    width: 100%;
-    padding: 10px;
-  }
-
-  /* Seções */
-  .section {
-    padding: 30px 15px;
-  }
-
-  /* Dev area */
-  .dev-flex {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .skill-group {
-    min-width: 100%;
-  }
-
-  .dev-photo {
-    width: 110px;
-    height: 110px;
-  }
-
-  /* Hero */
-  .hero h2 {
-    font-size: 22px;
-  }
-
-}
-
-
-  /* Esconde menu grande */
-  .sidebar {
-    width: 55px;
-  }
-
-  .sidebar span {
-    display: none;
-  }
-
-  /* Ajusta área principal */
-  .main {
-    margin-left: 55px;
-    padding: 12px;
-  }
-
-  /* Card principal */
-  .developer-card {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 15px;
-  }
-
-  /* Textos */
-  .developer-card h2 {
-    font-size: 18px;
-  }
-
-  .developer-card p {
-    font-size: 13px;
-  }
-
-  /* Foto */
-  .developer-photo,
-  .developer-card img {
-    width: 110px;
-    height: 110px;
-  }
-
-  /* Barras */
-  .progress {
-    height: 7px;
-  }
-
-}
-
+        @media (max-width: 600px) {
+            .section { padding: 25px 15px; }
+            .grid { grid-template-columns: 1fr; }
+            .dev-flex { flex-direction: column; text-align: center; }
+            .skill-group { min-width: 100%; text-align: left; }
         }
     </style>
 </head>
 <body>
 
     <aside class="sidebar">
-        <div class="logo"><i class="fas fa-shield-halved"></i><h1>EB • FALCA</h1></div>
+        <div class="logo">
+            <i class="fas fa-shield-halved"></i>
+            <h1>EB • FALCA</h1>
+        </div>
         <ul class="menu">
             <li><a href="#inicio"><i class="fas fa-house"></i> <span>Início</span></a></li>
             <li><a href="#painel"><i class="fas fa-chart-line"></i> <span>Painel</span></a></li>
             <li><a href="#divisoes"><i class="fas fa-users"></i> <span>Divisões</span></a></li>
             <li><a href="#honrarias"><i class="fas fa-medal"></i> <span>Honrarias</span></a></li>
             <li><a href="#tecnica"><i class="fas fa-code"></i> <span>Área do Dev</span></a></li>
-            <li><a href="#contato"><i class="fas fa-envelope"></i> <span>Contato</span></a></li>
         </ul>
     </aside>
 
     <div class="main">
         <section class="hero" id="inicio">
             <h2>EXÉRCITO BRASILEIRO RP</h2>
-            <p style="color: #888; margin-top: 10px;">Sistema Estratégico de Gestão Militar</p>
+            <p style="color: #aaa; margin-top: 10px; font-weight: 300;">Sistema Estratégico de Gestão Militar</p>
         </section>
 
         <section class="section" id="painel">
@@ -266,21 +157,21 @@
             <div class="grid">
                 <div class="card">
                     <h3>CIE 🧠</h3>
-                    <p>Centro de Inteligência do Exército.</p>
-                    <p>Diretor: Midori</p>
-                    <a href="https://discord.gg/Ccr7ubBuWb" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> Entrar CIE</a>
+                    <p>Inteligência do Exército.</p>
+                    <p><small>Diretor: Midori</small></p>
+                    <a href="https://discord.gg/Ccr7ubBuWb" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> ENTRAR</a>
                 </div>
                 <div class="card">
                     <h3>BAC 🏴‍☠️</h3>
-                    <p>Batalhão de Ações e Comandos.</p>
-                    <p>Diretor: Mariel</p>
-                    <a href="https://discord.gg/MwwHQfVwAn" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> Entrar BAC</a>
+                    <p>Ações e Comandos.</p>
+                    <p><small>Diretor: Mariel</small></p>
+                    <a href="https://discord.gg/MwwHQfVwAn" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> ENTRAR</a>
                 </div>
                 <div class="card">
                     <h3>BFesp ☠️</h3>
-                    <p>Batalhão de Forças Especiais.</p>
-                    <p>Diretor: Rafael</p>
-                    <a href="https://discord.gg/BCWpHjhe9U" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> Entrar BFE</a>
+                    <p>Forças Especiais.</p>
+                    <p><small>Diretor: Rafael</small></p>
+                    <a href="https://discord.gg/BCWpHjhe9U" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> ENTRAR</a>
                 </div>
             </div>
         </section>
@@ -289,74 +180,57 @@
             <h2 class="section-title"><i class="fas fa-award"></i> Quadro de Honra</h2>
             <div class="grid">
                 <div class="card" style="border-left: 4px solid gold;">
-                    <h3><span><i class="fas fa-code" style="color: rgb(8, 117, 5);"></i> Lead Dev</h3>
-                    <p><strong>Midori</strong></p>
-                    <p style="font-size: 12px; color: #777; margin-top: 10px;">Arquiteto do Sistema.</p><br><br>
-                    <p><strong>Vetê</strong></p>
-                    <p style="font-size: 12px; color: #777; margin-top: 10px;">Developer do Mapa.</</style></p>
+                    <h3><i class="fas fa-code"></i> Lead Dev</h3>
+                    <p><strong>Midori</strong> - Arquiteto</p>
+                    <p><strong>Vetê</strong> - Developer Mapa</p>
                 </div>
-                <div class="card" style="border-left: 4px solid #8ed14f;">
+                <div class="card" style="border-left: 4px solid var(--primary);">
                     <h3><i class="fas fa-hammer"></i> Master Builders</h3>
-                    <ul style="list-style: none; font-size: 14px; line-height: 1.8;">
-                        <li><i class="fas fa-star" style="color: gold; font-size: 10px;"></i> Falca [Dono]</li>
-                        <li><i class="fas fa-star" style="color: gold; font-size: 10px;"></i> Midori [Co-Owner]</li>
-                        <li><i class="fas fa-star" style="color: gold; font-size: 10px;"></i> Vetê [Chefe Dev]</li>
-                        <li><i class="fas fa-star" style="color: gold; font-size: 10px;"></i> Mariel [Dev]</li>
-                        <li><i class="fa-regular fa-bookmark" style="color: gold; font-size: 10px;"></i> Hwatson [Manager]</li>
-                    </ul>
-                    <p style="font-size: 11px; color: #555; margin-top: 10px;">Excelência em mapeamento e infraestrutura.</p>
+                    <p style="font-size: 13px; line-height: 1.6;">
+                        Falca [Dono] • Midori [Co-Owner]<br>
+                        Vetê [Chefe Dev] • Mariel [Dev]
+                    </p>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="tecnica">
-            <h2 class="section-title"><i class="fas fa-user-gear"></i> Developer Status</h2>
-            <button class="toggle-btn" onclick="toggleDev()">ACESSAR DATABASE DO DESENVOLVEDOR</button>
+        <section class="section" id="tecnica" style="text-align: center;">
+            <h2 class="section-title" style="text-align: left;"><i class="fas fa-user-gear"></i> Developer Status</h2>
+            <button class="toggle-btn" onclick="toggleDev()">ACESSAR DATABASE</button>
             
             <div id="dev-content" class="dev-container">
                 <div class="dev-flex">
                     <img src="Imagem_do_WhatsApp_de_2025-08-22_as_17.32.53_b668fc13.jpg" class="dev-photo" alt="Davi">
                     <div class="skill-group">
-                        <h3>Davi — Lead Developer</h3>
-                        <p style="margin: 5px 0 20px; color: #aaa;">Expertise Automação Militar.</p>
-                        
-                        <span>Engenheiro de Software (Python & JavaScript)</span>
+                        <h3 style="text-align: left;">Davi — Lead Developer</h3>
+                        <span>Engenheiro de Software (Python & JS)</span>
                         <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
                         
-                        <span>Back end</span>
+                        <span>Back end & Infra</span>
                         <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
                         
-                        <span>Discord API & Bots</span>
+                        <span>Discord API</span>
                         <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="contato">
-            <h2 class="section-title"><i class="fas fa-headset"></i> Suporte</h2>
-            <div class="grid">
-                <div class="card">
-                    <i class="fab fa-discord" style="font-size: 25px; color: var(--primary);"></i>
-                    <p style="margin-top: 10px;"><strong>Discord:</strong> midoriwko</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-envelope" style="font-size: 25px; color: var(--primary);"></i>
-                    <p style="margin-top: 10px;"><strong>Email:</strong> davibrasnuneslopes@hotmail.com</p>
-                </div>
-            </div>
-        </section>
-
         <footer class="footer">
-            <p style="font-family: 'Orbitron'; font-size: 14px; letter-spacing: 1px;">EB • FALCA RP • SISTEMA OFICIAL</p>
-            <p style="color: #444; font-size: 11px; margin-top: 10px;">© 2026 Todos os direitos reservados.</p>
+            <p style="font-family: 'Orbitron'; font-size: 12px;">EB • FALCA RP • SISTEMA OFICIAL</p>
+            <p style="color: #444; font-size: 10px; margin-top: 5px;">© 2026 Todos os direitos reservados.</p>
         </footer>
     </div>
 
     <script>
         function toggleDev() {
             const dev = document.getElementById('dev-content');
-            dev.style.display = (dev.style.display === 'block') ? 'none' : 'block';
+            if (dev.style.display === 'block') {
+                dev.style.display = 'none';
+            } else {
+                dev.style.display = 'block';
+                dev.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     </script>
 </body>
