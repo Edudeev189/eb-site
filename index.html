@@ -103,8 +103,48 @@
             content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--primary);
         }
 
-        .data-card h3 { font-family: 'Orbitron'; font-size: 1rem; color: var(--primary); margin-bottom: 15px; }
+        /* Cores customizadas para as divisões */
+        .card-cie { border-color: #afd5dd !important; }
+        .card-cie::before { background: #afd5dd !important; }
+        .card-cie h3 { color: #afd5dd !important; }
+        .card-cie .btn-cyber { border-color: #afd5dd !important; color: #afd5dd !important; }
+        .card-cie .btn-cyber:hover { background: #afd5dd !important; color: #000 !important; }
 
+        .card-bac { border-color: #464545 !important; }
+        .card-bac::before { background: #464545 !important; }
+        .card-bac h3 { color: #464545 !important; }
+        .card-bac .btn-cyber { border-color: #464545 !important; color: #464545 !important; }
+        .card-bac .btn-cyber:hover { background: #464545 !important; color: #000 !important; }
+
+        .card-bfesp { border-color: #ff0000da !important; }
+        .card-bfesp::before { background: #ff0000da !important; }
+        .card-bfesp h3 { color: #ff0000da !important; }
+        .card-bfesp .btn-cyber { border-color: #ff0000da !important; color: #ff0000da !important; }
+        .card-bfesp .btn-cyber:hover { background: #ff0000da !important; color: #000 !important; }
+
+        .card-bpe { border-color: #0315b3 !important; }
+        .card-bpe::before { background: #0315b3 !important; }
+        .card-bpe h3 { color: #0315b3 !important; }
+        .card-bpe .btn-cyber { border-color: #0315b3 !important; color: #0315b3 !important; }
+        .card-bpe .btn-cyber:hover { background: #0315b3 !important; color: #000 !important; }
+
+        .data-card h3 { font-family: 'Orbitron'; font-size: 1rem; color: var(--primary); margin-bottom: 15px; }
+/* Remove a barra verde padrão e adiciona a vermelha no lugar exato */
+.card-crime-fix::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px; /* Ajuste a largura se precisar */
+    background: #ff3e3e;
+    box-shadow: 0 0 10px #ff3e3e;
+}
+
+/* Garante que não apareça borda dupla */
+.card-crime-fix {
+    border-left: none !important;
+}
         /* Botões Estilo Cyber */
         .btn-cyber {
             background: transparent; border: 1px solid var(--primary);
@@ -154,6 +194,7 @@
         <ul class="nav-menu">
             <li><a href="#" class="active" onclick="showTab('tab-inicio')"><i class="fas fa-terminal"></i> CENTRAL</a></li>
             <li><a href="#" onclick="showTab('tab-divisoes')"><i class="fas fa-shield-halved"></i> DIVISÕES</a></li>
+            <li><a href="#" onclick="showTab('tab-faccoes')"><i class="fa-solid fa-gun"></i> Criminal (Em desenvolvimento)</a></li>
             <li><a href="#" onclick="showTab('tab-juridico')"><i class="fas fa-gavel"></i> JURÍDICO</a></li>
             <li><a href="#" onclick="showTab('tab-dev')"><i class="fas fa-code-branch"></i> DATABASE DEV</a></li>
             <li><a href="#" onclick="openModal('modalGame')"><i class="fas fa-play"></i> INICIAR JOGO</a></li>
@@ -197,24 +238,54 @@
         <section id="tab-divisoes" class="section">
             <h2 style="font-family: 'Orbitron'; color: var(--primary); margin-bottom: 30px;">// DIVISÕES DE ELITE</h2>
             <div class="grid">
-                <div class="data-card">
+                <div class="data-card card-cie">
                     <h3>CIE 🧠</h3>
                     <p>Centro de Inteligência do Exército.</p>
                     <p><small>DIRETOR: MIDORI</small></p>
                     <a href="https://discord.gg/Ccr7ubBuWb" class="btn-cyber" style="margin-top: 15px;">DISCORD CIE</a>
                 </div>
-                <div class="data-card">
+                <div class="data-card card-bac">
                     <h3>BAC 🏴‍☠️</h3>
                     <p>Batalhão de Ações e Comandos.</p>
                     <p><small>DIRETOR: MARIEL</small></p>
                     <a href="https://discord.gg/MwwHQfVwAn" class="btn-cyber" style="margin-top: 15px;">DISCORD BAC</a>
                 </div>
-                <div class="data-card">
+                <div class="data-card card-bfesp">
                     <h3>BFesp ☠️</h3>
                     <p>Batalhão de Forças Especiais.</p>
                     <p><small>DIRETOR: RAFAEL</small></p>
                     <a href="https://discord.gg/BCWpHjhe9U" class="btn-cyber" style="margin-top: 15px;">DISCORD BFE</a>
                 </div>
+                <div class="data-card card-bpe">
+                    <h3>BPE 👮</h3>
+                    <p>Batalhão de Polícia do Exército.</p>
+                    <p><small>DIRETOR: Miqueias</small></p>
+                    <a href="https://discord.gg/xRjhwmMGKN" class="btn-cyber" style="margin-top: 15px;">DISCORD BPE</a>
+                </div>
+                <h3>Divisões a venda:</h3>
+                <p><i><b>Nenhuma no momento.</b></i></p>
+                <p><a href="https://discord.gg/fgCyt2Vmd8" target="_blank" style="color: var(--primary);">Saiba mais</a></p>
+            </div>
+        </section>
+
+         <section id="tab-faccoes" class="section">
+            <h2 style="font-family: 'Orbitron'; color: var(--primary); margin-bottom: 30px;">// Facções</h2>
+            <div class="grid">
+<div class="data-card card-crime-fix" style="border-color: #ff3e3e; box-shadow: 0 0 10px rgba(255, 62, 62, 0.2); position: relative;">
+   
+   <p style="color: #b92020ad;"><b>Criminal</b></p>
+   
+   <p><small style="color: rgba(255, 62, 62, 0.8);">Dono: Aquiles</small></p>
+   
+   <a href="https://discord.gg/Ccr7ubBuWb" class="btn-cyber" 
+      style="margin-top: 15px; color: #ff3e3e; border-color: #ff3e3e;">
+      DISCORD CR
+   </a>
+</div>
+                </div> <Br>
+                <h3>Facções a venda:</h3>
+                <p><i><b>Nenhuma no momento.</b></i></p>
+                <p><a href="https://discord.gg/fgCyt2Vmd8" target="_blank" style="color: var(--primary);">Saiba mais</a></p>
             </div>
         </section>
 
@@ -259,7 +330,8 @@
                     </div>
                     <a href="https://discord.gg/JGNwCDa9Ks" target="_blank" class="btn-cyber" style="text-align: center; text-decoration: none; border-color: #5865F2; color: #5865F2;">
                         <i class="fab fa-discord"></i> SOLICITAR AUDIÊNCIA
-                    </a>
+                    </a><br>
+                    <p>Direção: <b>Dr. Hwatson</b></p>
                 </div>
             </div>
         </section>
@@ -420,7 +492,7 @@
                 "1243913958612664511": { nome: "Falca", cargo: "Founder", id: "001", cor: "#ff0000" },
                 "685669953571258389": { nome: "Midori", cargo: "Developer / Co owner", id: "002", cor: "#15ff00" },
                 "1254266294266630148": { nome: "Vetê", cargo: "Chefe DEVS", id: "013", cor: "#15ff00" },
-                "1108708704490098738": { nome: "Mariel", cargo: "Dev", id: "014", cor: "#15ff00" }, // <--- O homem entrou na lista!
+                "1108708704490098738": { nome: "Mariel", cargo: "Dev", id: "014", cor: "#15ff00" },
                 "1195875337804984350": { nome: "Hwatson", cargo: "Manager", id: "005", cor: "#00d4ff" },
                 "1238482434211975372": { nome: "Japa", cargo: "Administrador", id: "006", cor: "#00d4ff" },
                 "1240467366408880198": { nome: "Rafael", cargo: "Administrador", id: "007", cor: "#00d4ff" },
