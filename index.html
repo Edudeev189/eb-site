@@ -155,9 +155,27 @@
 .card-crime-fix:hover {transform: scale(1.05);}
 
 /* Garante que não apareça borda dupla */
-.card-crime-fix {
+.card-crime-fixtdu {
     border-left: none !important;
 }
+/* Remove a barra verde padrão e adiciona a vermelha no lugar exato */
+.card-crime-fixtdu::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px; /* Ajuste a largura se precisar */
+    background: #a35e3fad;
+    box-shadow: 0 0 10px #a35e3fad;
+}
+.card-crime-fixtdu:hover {transform: scale(1.05);}
+
+/* Garante que não apareça borda dupla */
+.card-crime-fixtdu {
+    border-left: none !important;
+}
+
         /* Botões Estilo Cyber */
         .btn-cyber {
             background: transparent; border: 1px solid var(--primary);
