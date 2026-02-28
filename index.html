@@ -153,7 +153,8 @@
     box-shadow: 0 0 10px #ff3e3e;
 }
 
-.card-crime-fix:hover {transform: scale(1.05);}
+.card-crime-fix:hover {transform: scale(1.05);
+}
 
 /* Garante que não apareça borda dupla */
 .card-crime-fixtdu {
@@ -171,6 +172,7 @@
     box-shadow: 0 0 10px #a35e3fad;
 }
 .card-crime-fixtdu:hover {transform: scale(1.05);}
+
 .card-crimetdu-fix::before {
     background: #a35e3fad !important;
     box-shadow: 0 0 10px #a35e3fad;
@@ -184,6 +186,76 @@
             display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
         }
         .btn-cyber:hover { background: var(--primary); color: #000; box-shadow: 0 0 15px var(--primary); }
+        
+        /* botao estilo cyber bpe */
+        .btn-cyberbpe {
+            background-color: #0315b3; border: 1px solid rgb(49, 138, 255);
+            color: black; padding: 10px 20px; font-family: 'Orbitron';
+            font-size: 10px; cursor: pointer; transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+        }
+        
+        .btn-cyberbpe:hover { background:cornflowerblue; color: #000; box-shadow: 0 0 15px blue; }
+
+        
+
+        /* botao estilo cyber stm */
+        .btn-cyberstm {
+            background-color: #280952; border: 1px solid rgb(49, 138, 255);
+            color: black; padding: 10px 20px; font-family: 'Orbitron';
+            font-size: 10px; cursor: pointer; transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+        }
+        
+        .btn-cyberstm:hover { background:rgb(11, 59, 146); color: #000; box-shadow: 0 0 15px rgb(102, 7, 255); }
+
+        /* botao estilo cyber bac */
+        .btn-cyberbac {
+            background-color: #232325; border: 1px solid rgb(61, 61, 61);
+            color: rgb(255, 255, 255); padding: 10px 20px; font-family: 'Orbitron';
+            font-size: 10px; cursor: pointer; transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+        }
+        .btn-cyberbac:hover { background:rgb(54, 58, 66); color: #000; box-shadow: 0 0 15px rgb(59, 59, 59); }
+
+
+        /* botao estilo cyber bfe */
+        .btn-cyberbfe {
+            background-color: #470303; border: 1px solid rgb(58, 24, 24);
+            color: rgb(255, 255, 255); padding: 10px 20px; font-family: 'Orbitron';
+            font-size: 10px; cursor: pointer; transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+        }
+        .btn-cyberbfe:hover { background:rgb(121, 3, 3); color: #ffffff; box-shadow: 0 0 15px rgb(173, 6, 6); }
+
+        /* botao estilo cyber cie */
+        .btn-cybercie {
+            background-color: #026961; border: 1px solid rgb(58, 170, 179);
+            color: rgb(255, 255, 255); padding: 10px 20px; font-family: 'Orbitron';
+            font-size: 10px; cursor: pointer; transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+        }
+        .btn-cybercie:hover { background:rgb(67, 179, 179); color: #ffffff; box-shadow: 0 0 15px rgb(6, 120, 173); }
+
+
+        /* botao estilo cyber cr */
+        .btn-cybercr {
+            background: transparent; border: 1px solid var(--primary);
+            color: var(--primary); padding: 10px 20px; font-family: 'Orbitron';
+            font-size: 10px; cursor: pointer; transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+        }
+        .btn-cybercr:hover { background-color: rgba(255, 0, 0, 0.555); color: #000; box-shadow: 0 0 15px red; }
+
+
+        /* botao estilo cyber tdu */
+        .btn-cybertdu {
+            background: transparent; border: 1px solid var(--primary);
+            color: var(--primary); padding: 10px 20px; font-family: 'Orbitron';
+            font-size: 10px; cursor: pointer; transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+        }
+        .btn-cybertdu:hover { background-color: rgba(148, 94, 24, 0.555); color: #000; box-shadow: 0 0 15px rgb(185, 122, 5); }
 
         /* Skills/Dev Area */
         .skill-container { margin-top: 15px; }
@@ -288,25 +360,25 @@
                     <h3>CIE 🧠</h3>
                     <p>Centro de Inteligência do Exército.</p>
                     <p><small>DIRETOR: HIROSHY</small></p>
-                    <a href="https://discord.gg/Ccr7ubBuWb" class="btn-cyber" style="margin-top: 15px;">DISCORD CIE</a>
+                    <a href="https://discord.gg/Ccr7ubBuWb" class="btn-cybercie" style="margin-top: 15px;">DISCORD CIE</a>
                 </div>
                 <div class="data-card card-bac">
                     <h3>BAC 🏴‍☠️</h3>
                     <p>Batalhão de Ações e Comandos.</p>
                     <p><small>DIRETOR: MARIEL</small></p>
-                    <a href="https://discord.gg/MwwHQfVwAn"  target="_blank" class="btn-cyber" style="margin-top: 15px;">DISCORD BAC</a>
+                    <a href="https://discord.gg/MwwHQfVwAn"  target="_blank" class="btn-cyberbac" style="margin-top: 15px;">DISCORD BAC</a>
                 </div>
                 <div class="data-card card-bfesp">
                     <h3>BFesp ☠️</h3>
                     <p>Batalhão de Forças Especiais.</p>
                     <p><small>DIRETOR: RAFAEL</small></p>
-                    <a href="https://discord.gg/BCWpHjhe9U"  target="_blank" class="btn-cyber" style="margin-top: 15px;">DISCORD BFE</a>
+                    <a href="https://discord.gg/BCWpHjhe9U"  target="_blank" class="btn-cyberbfe" style="margin-top: 15px;">DISCORD BFE</a>
                 </div>
                 <div class="data-card card-bpe">
                     <h3>BPE 👮</h3>
                     <p>Batalhão de Polícia do Exército.</p>
                     <p><small>DIRETOR: Miqueias</small></p>
-                    <a href="https://discord.gg/xRjhwmMGKN"  target="_blank" class="btn-cyber" style="margin-top: 15px;">DISCORD BPE</a>
+                    <a href="https://discord.gg/xRjhwmMGKN"  target="_blank" class="btn-cyberbpe" style="margin-top: 15px;">DISCORD BPE</a>
                     
                 </div>
                 <p><i><b>Divisões a venda: Nenhuma no momento.</b></i></p>
@@ -324,7 +396,7 @@
    
    <p><small style="color: rgba(255, 62, 62, 0.8);">Dono: Aquiles</small></p>
    
-   <a href="https://discord.gg/fWR949MqKj" target="_blank" class="btn-cyber" 
+   <a href="https://discord.gg/fWR949MqKj" target="_blank" class="btn-cybercr" 
       style="margin-top: 15px; color: #ff3e3e; border-color: #ff3e3e;">
       DISCORD CR
    </a>
@@ -335,7 +407,7 @@
    
    <p><small style="color: #a35e3fad;">Dono: DZ7</small></p>
    
-   <a href="https://discord.gg/stXefdbuX2" target="_blank" class="btn-cyber" 
+   <a href="https://discord.gg/stXefdbuX2" target="_blank" class="btn-cybertdu" 
       style="margin-top: 15px; color: #a35e3fad; border-color: #a35e3fad;">
       DISCORD TDU
    </a>
@@ -386,7 +458,7 @@
                         <h3><i class="fas fa-gavel"></i> SUPREMO TRIBUNAL MILITAR</h3>
                         <p>Corte Superior responsável por audiências, processos de Alto Comando e revisão constitucional.</p>
                     </div>
-                    <a href="https://discord.gg/JGNwCDa9Ks" target="_blank" class="btn-cyber" style="text-align: center; text-decoration: none; border-color: #5865F2; color: #5865F2;">
+                    <a href="https://discord.gg/JGNwCDa9Ks" target="_blank" class="btn-cyberstm" style="text-align: center; text-decoration: none; border-color: #5865F2; color: #5865F2;">
                         <i class="fab fa-discord"></i> SOLICITAR AUDIÊNCIA
                     </a>
                     <p>Direção: <b>Dr. Hwatson</b></p>
